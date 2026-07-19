@@ -6,7 +6,7 @@
 **Türkiye İklim Kanunu (ETS) · TSRS · AB SKDM (CBAM) için ücretsiz, interaktif hazırlık aracı**
 **A free, interactive readiness tool for the Turkish Climate Law (ETS), TSRS, and EU CBAM**
 
-[Türkçe](#-türkçe) · [English](#-english) — *(GitHub Pages linkini kurunca bu satıra ekleyin / add your GitHub Pages link here once set up)*
+[Türkçe](#-türkçe) · [English](#-english) — (https://burakdelibacak.github.io/cop31-uyum-radari/)
 
 <br>
 
@@ -76,7 +76,7 @@ kopyalayabilir ve paylaşabilirsiniz; **Omnius Creative'e atıf yapılması** ve
 ### İletişim
 
 **Omnius Creative** · İzmir, Türkiye
-[email] · [website]
+burakdelibacak@omniuscreative.com · https://omniuscreative.com/
 
 ---
 
