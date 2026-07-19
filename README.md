@@ -139,4 +139,4 @@ provided you **credit Omnius Creative** and **do not sell it commercially**. See
 ### Contact
 
 **Omnius Creative** · İzmir, Türkiye
-[email] · [website]
+burakdelibacak@omniuscreative.com · https://omniuscreative.com/
