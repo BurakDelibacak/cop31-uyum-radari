@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COP31 Uyum Radarı — Denetim Hazırlık Sistemi</title>
+<title>COP31 Uyum Radarı — Kurumsal Hazırlık Öz-Değerlendirmesi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -141,6 +141,12 @@ header.masthead::before{
 .cd-cell .cd-label{font-family:var(--font-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-faint);}
 .cd-cell .cd-value{font-family:var(--font-mono); font-size:21px; color:var(--gold); margin-top:3px; font-weight:600;}
 .cd-cell .cd-value small{font-size:11px; color:var(--text-dim); font-weight:400;}
+.review-note{
+  margin-top:10px; padding:9px 12px; border-left:3px solid var(--gold);
+  background:color-mix(in srgb, var(--surface) 80%, transparent); color:var(--text-dim);
+  font-size:12px; position:relative;
+}
+.review-note strong{color:var(--text);}
 
 /* ===== STEPPER NAV ===== */
 nav.stepper{
@@ -204,6 +210,18 @@ input[type=text].tfield, select.tfield{
 .exposure-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
 @media (max-width:960px){.exposure-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:640px){.exposure-grid{grid-template-columns:1fr;}}
+@media (max-width:640px){
+  .wrap{padding:0 16px;}
+  .item-row{grid-template-columns:1fr; gap:8px; padding:12px 0;}
+  .item-row .status-select-wrap{width:100%;}
+  select.status-select{width:100%; padding:11px 10px; font-size:13px;}
+  .rb-row{grid-template-columns:1fr 46px; row-gap:5px;}
+  .rb-row .rb-name{grid-column:1 / -1;}
+  .module-inner{padding:2px 14px 18px;}
+  .module-head{padding:16px 14px;}
+  .card{padding:16px;}
+  nav.stepper .wrap{padding:0 16px;}
+}
 .exp-card{
   border:1px solid var(--line); border-radius:var(--radius); padding:18px; background:var(--surface);
   position:relative; overflow:hidden; cursor:pointer; transition:border-color .15s, transform .1s;
@@ -236,7 +254,7 @@ input[type=text].tfield, select.tfield{
 }
 .module-head .mh-left{display:flex; align-items:center; gap:14px;}
 .module-badge{
-  width:38px;height:38px;border-radius:9px; display:flex; align-items:center; justify-content:center;
+  min-width:38px;height:38px;padding:0 5px;border-radius:9px; display:flex; align-items:center; justify-content:center;
   font-family:var(--font-mono); font-size:12px; font-weight:700; flex:none; border:1px solid var(--line);
 }
 .module-head h3{font-size:17px;}
@@ -244,7 +262,7 @@ input[type=text].tfield, select.tfield{
 .module-head .chev{transition:transform .18s; color:var(--text-faint);}
 .module.open .chev{transform:rotate(180deg);}
 .module-body{max-height:0; overflow:hidden; transition:max-height .25s ease;}
-.module.open .module-body{max-height:6000px;}
+.module.open .module-body{max-height:none;}
 .module-inner{padding:2px 20px 22px;}
 .module-authority{
   font-size:12.5px; color:var(--text-dim); background:var(--surface-2); border:1px solid var(--line);
@@ -271,6 +289,7 @@ select.status-select[data-v="0"]{color:var(--text-faint);}
 select.status-select[data-v="1"]{color:var(--amber); border-color:var(--amber);}
 select.status-select[data-v="2"]{color:var(--blue); border-color:var(--blue);}
 select.status-select[data-v="3"]{color:var(--green); border-color:var(--green);}
+select.status-select[data-v="-1"]{color:var(--text-faint); border-style:dashed;}
 textarea.notes{
   width:100%; min-height:70px; background:var(--surface-2); border:1px solid var(--line); color:var(--text);
   border-radius:7px; padding:10px; font-family:var(--font-body); font-size:13px; resize:vertical;
@@ -303,6 +322,24 @@ textarea.notes{
 .export-card{border:1px solid var(--line); border-radius:var(--radius); padding:20px; background:var(--surface);}
 .export-card h4{font-size:15.5px; margin-bottom:8px;}
 .export-card p{font-size:12.8px; color:var(--text-dim); margin-bottom:14px;}
+
+/* ===== METHODOLOGY / TRANSPARENCY ===== */
+.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+@media (max-width:820px){.method-grid{grid-template-columns:1fr;}}
+.method-card{border:1px solid var(--line);border-radius:var(--radius);padding:20px;background:var(--surface);}
+.method-card h3{font-size:16px;margin-bottom:8px;}
+.method-card p,.method-card li{font-size:12.8px;color:var(--text-dim);}
+.method-card ul{margin:8px 0 0;padding-left:18px;}
+.method-card li+li{margin-top:5px;}
+.method-card code{font-family:var(--font-mono);font-size:11px;color:var(--gold);}
+.source-table-wrap{overflow-x:auto;margin-top:18px;}
+.source-table{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--surface);}
+.source-table th,.source-table td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top;}
+.source-table th{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);background:var(--surface-2);}
+.source-table td{color:var(--text-dim);}
+.source-table a{color:var(--blue);}
+.method-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.method-chip{font-family:var(--font-mono);font-size:10.5px;border:1px solid var(--line);border-radius:999px;padding:4px 8px;color:var(--text-dim);}
 
 footer{padding:40px 0 60px; border-top:1px solid var(--line); margin-top:30px;}
 footer .foot-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:30px;}
@@ -347,8 +384,8 @@ footer .credit{margin-top:20px; font-family:var(--font-mono); font-size:11px; co
         <div class="brand-text">
           <div class="kicker" data-tr="COP31 · ANTALYA · 9–20 KASIM 2026" data-en="COP31 · ANTALYA · 9–20 NOV 2026">COP31 · ANTALYA · 9–20 KASIM 2026</div>
           <h1 data-tr="COP31 Uyum Radarı" data-en="COP31 Compliance Radar">COP31 Uyum Radarı</h1>
-          <p class="sub" data-tr="İklim Kanunu, TSRS ve AB SKDM (CBAM) için kurumsal denetim hazırlık sistemi. Hangi yükümlülükler sizi kapsıyor, ne kadar hazırsınız — tek panelde." data-en="A corporate audit-readiness system for the Turkish Climate Law, TSRS and EU CBAM. Which obligations apply to you, how ready you are — in one panel.">
-            İklim Kanunu, TSRS ve AB SKDM (CBAM) için kurumsal denetim hazırlık sistemi. Hangi yükümlülükler sizi kapsıyor, ne kadar hazırsınız — tek panelde.
+          <p class="sub" data-tr="İklim Kanunu, TSRS ve AB SKDM (CBAM) için gösterge niteliğinde kurumsal hazırlık öz-değerlendirmesi. Kapsam sinyalinizi, kanıt açıklarınızı ve önceliklerinizi tek panelde görün." data-en="An indicative corporate-readiness self-assessment for the Turkish Climate Law, TSRS and EU CBAM. See your scope signals, evidence gaps and priorities in one panel.">
+            İklim Kanunu, TSRS ve AB SKDM (CBAM) için gösterge niteliğinde kurumsal hazırlık öz-değerlendirmesi. Kapsam sinyalinizi, kanıt açıklarınızı ve önceliklerinizi tek panelde görün.
           </p>
         </div>
       </div>
@@ -365,7 +402,7 @@ footer .credit{margin-top:20px; font-family:var(--font-mono); font-size:11px; co
         <div class="cd-value" id="cdCop31">—</div>
       </div>
       <div class="cd-cell">
-        <div class="cd-label" data-tr="ETS Sonraki Yıllık Rapor" data-en="ETS Next Annual Report">ETS SONRAKİ YILLIK RAPOR</div>
+        <div class="cd-label" data-tr="ETS/MRV Sonraki Emisyon Raporu" data-en="ETS/MRV Next Emissions Report">ETS/MRV SONRAKİ EMİSYON RAPORU</div>
         <div class="cd-value" id="cdEts">30 Nis <small>2027</small></div>
       </div>
       <div class="cd-cell">
@@ -373,9 +410,13 @@ footer .credit{margin-top:20px; font-family:var(--font-mono); font-size:11px; co
         <div class="cd-value" id="cdCbam">30 Eyl <small>2027</small></div>
       </div>
       <div class="cd-cell">
-        <div class="cd-label" data-tr="TSRS Güvence Denetimi Dönemi" data-en="TSRS Assurance Audit Cycle">TSRS GÜVENCE DENETİMİ</div>
-        <div class="cd-value" id="cdTsrs" style="font-size:16px;" data-tr="Aktif (2026'dan itibaren)" data-en="Active (from 2026)">Aktif (2026'dan itibaren)</div>
+        <div class="cd-label" data-tr="TSRS Kapsam & Güvence" data-en="TSRS Scope & Assurance">TSRS KAPSAM &amp; GÜVENCE</div>
+        <div class="cd-value" id="cdTsrs" style="font-size:16px;" data-tr="KGK kararlarını doğrulayın" data-en="Verify current KGK decisions">KGK kararlarını doğrulayın</div>
       </div>
+    </div>
+    <div class="review-note">
+      <strong data-tr="Mevzuat inceleme tarihi: 2 Eylül 2026." data-en="Regulatory review date: 2 September 2026.">Mevzuat inceleme tarihi: 2 Eylül 2026.</strong>
+      <span data-tr=" ETS içeriği 27 Ağustos 2026 tarihli nihai Yönetmeliğe göre güncellenmiştir. Sonuçlar hukuki kapsam kararı değildir." data-en=" ETS content reflects the final Regulation dated 27 August 2026. Results are not legal scope determinations."> ETS içeriği 27 Ağustos 2026 tarihli nihai Yönetmeliğe göre güncellenmiştir. Sonuçlar hukuki kapsam kararı değildir.</span>
     </div>
   </div>
 </header>
@@ -387,6 +428,7 @@ footer .credit{margin-top:20px; font-family:var(--font-mono); font-size:11px; co
     <a href="#modules"><span class="n">03</span><span data-tr="Kontrol Listeleri" data-en="Checklists">Kontrol Listeleri</span></a>
     <a href="#dashboard"><span class="n">04</span><span data-tr="Hazırlık Paneli" data-en="Readiness Dashboard">Hazırlık Paneli</span></a>
     <a href="#export"><span class="n">05</span><span data-tr="Dışa Aktar" data-en="Export">Dışa Aktar</span></a>
+    <a href="#methodology"><span class="n">06</span><span data-tr="Metodoloji" data-en="Methodology">Metodoloji</span></a>
   </div>
 </nav>
 
@@ -400,7 +442,7 @@ footer .credit{margin-top:20px; font-family:var(--font-mono); font-size:11px; co
         <p class="disclaimer" data-tr="Bu araç yalnızca kurum içi öz-değerlendirme ve hazırlık planlaması amacıyla hazırlanmıştır; hukuki, mali veya denetim görüşü niteliği taşımaz ve resmî bir uygunluk beyanı ya da güvence denetimi yerine geçmez. Eşik değerleri, kapsam listeleri ve tarihler ilgili mevzuatın güncellenmesiyle değişebilir — nihai karar öncesi ilgili resmî kurumun güncel metnini doğrulayın. Omnius Creative, bu aracın kullanımından doğabilecek sonuçlardan sorumlu tutulamaz." data-en="This tool is provided solely for internal self-assessment and readiness planning; it does not constitute legal, financial or audit opinion and is not a substitute for a formal compliance statement or assurance audit. Thresholds, scope lists and dates may change as the underlying legislation is updated — verify against the relevant official authority's current text before making final decisions. Omnius Creative is not liable for outcomes arising from use of this tool.">
           Bu araç yalnızca kurum içi öz-değerlendirme ve hazırlık planlaması amacıyla hazırlanmıştır; hukuki, mali veya denetim görüşü niteliği taşımaz ve resmî bir uygunluk beyanı ya da güvence denetimi yerine geçmez. Eşik değerleri, kapsam listeleri ve tarihler ilgili mevzuatın güncellenmesiyle değişebilir — nihai karar öncesi ilgili resmî kurumun güncel metnini doğrulayın. Omnius Creative, bu aracın kullanımından doğabilecek sonuçlardan sorumlu tutulamaz.
         </p>
-        <div class="credit"><span data-tr="© Omnius Creative — COP31 Uyum Radarı v1.0 · İzmir" data-en="© Omnius Creative — COP31 Compliance Radar v1.0 · İzmir">© Omnius Creative — COP31 Uyum Radarı v1.0 · İzmir</span></div>
+        <div class="credit"><span data-tr="© Omnius Creative — COP31 Uyum Radarı v0.1.0 · İzmir · Mevzuat incelemesi: 02.09.2026" data-en="© Omnius Creative — COP31 Compliance Radar v0.1.0 · İzmir · Regulatory review: 02.09.2026">© Omnius Creative — COP31 Uyum Radarı v0.1.0 · İzmir · Mevzuat incelemesi: 02.09.2026</span></div>
       </div>
       <div>
         <h5 data-tr="Resmî Kaynaklar" data-en="Official Sources">RESMİ KAYNAKLAR</h5>
@@ -802,13 +844,15 @@ const PDF_FONT_BOLD_B64 = "AAEAAAARAQAABAAQR0RFRgFVAa0AAFgAAAAAKEdQT1MMtBn7AABYK
    Omnius Creative — self-assessment audit-readiness engine
    ============================================================ */
 
-/* ---------- CONFIG: key dates & thresholds (verify against official sources before resale) ---------- */
+/* ---------- CONFIG: key dates & review metadata ---------- */
 const CONFIG = {
   cop31Start: new Date('2026-11-09T00:00:00'),
-  cop31End: new Date('2026-11-20T00:00:00'),
+  cop31End: new Date('2026-11-20T23:59:59'),
   etsAnnualReportDeadline: '30 Nisan', // recurring annually
   cbamDeclarationDeadline: new Date('2027-09-30T00:00:00'),
-  tsrsNetSalesThresholdTRY: 1000000000 // confirmed criterion: 1 billion TRY net sales (one of three; verify current KGK table for the other two)
+  version: '0.1.0',
+  regulatoryReviewISO: '2026-09-02',
+  methodologyVersion: '2026.09'
 };
 
 /* ---------- STATE ---------- */
@@ -817,8 +861,8 @@ let state = {
   lang: 'tr',
   theme: 'ink',
   profile: {
-    companyName: '', hq: null, etsSector: null, exportsEU: null,
-    employees: null, turnover: null, bankListed: null, euParent: null, voluntary: null,
+    companyName: '', hq: null, etsSector: null, etsEmissions: null, exportsEU: null,
+    bankListed: null, tsrsAssessment: null, euParent: null, voluntary: null,
     done: false
   },
   items: {},
@@ -831,9 +875,16 @@ function loadState() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      state = Object.assign(state, parsed);
-      if (!Array.isArray(state.openModules)) {
-        state.openModules = parsed.openModule ? [parsed.openModule] : [];
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        const isObj = v => v && typeof v === 'object' && !Array.isArray(v);
+        if (parsed.lang === 'tr' || parsed.lang === 'en') state.lang = parsed.lang;
+        if (parsed.theme === 'ink' || parsed.theme === 'paper') state.theme = parsed.theme;
+        state.profile = Object.assign({}, state.profile, isObj(parsed.profile) ? parsed.profile : {});
+        state.items = isObj(parsed.items) ? parsed.items : {};
+        state.notes = isObj(parsed.notes) ? parsed.notes : {};
+        state.openModules = Array.isArray(parsed.openModules)
+          ? parsed.openModules
+          : (parsed.openModule ? [parsed.openModule] : []);
       }
     }
   } catch (e) { console.warn('State load failed', e); }
@@ -851,11 +902,18 @@ const PROFILER_QUESTIONS = [
       { v: 'eu', tr: 'AB üye ülkesi', en: 'EU member state' },
       { v: 'other', tr: 'Diğer', en: 'Other' }
     ]},
-  { id: 'etsSector', tr: 'Faaliyetleriniz yüksek emisyonlu bir sektörü kapsıyor mu? (elektrik üretimi, demir-çelik, çimento, gübre/azot, kağıt-kağıt hamuru, bakır üretimi, petrol rafinajı, kömür)', en: 'Do your operations fall under a high-emission sector? (power generation, iron & steel, cement, fertiliser/nitric acid, pulp & paper, copper production, petroleum refining, coal)',
+  { id: 'etsSector', tr: 'Türkiye’deki sabit tesislerinizden biri ETS Yönetmeliği Ek-1’deki bir faaliyeti yürütüyor mu? (Faaliyete göre kapasite eşiği ve istisnalar ayrıca kontrol edilmelidir.)', en: 'Does any fixed installation in Türkiye conduct an activity listed in Annex 1 of the Turkish ETS Regulation? (Activity-specific capacity thresholds and exclusions must also be checked.)',
     options: [
       { v: 'yes', tr: 'Evet', en: 'Yes' },
       { v: 'no', tr: 'Hayır', en: 'No' },
       { v: 'unsure', tr: 'Emin değilim', en: 'Not sure' }
+    ]},
+  { id: 'etsEmissions', tr: 'Ek-1 kapsamındaki tesisin yıllık emisyon kategorisi nedir?', en: 'What is the annual emissions category of the Annex 1 installation?',
+    options: [
+      { v: 'a', tr: 'Kategori A — 50.000 tCO₂e ve altı', en: 'Category A — 50,000 tCO₂e or less' },
+      { v: 'b', tr: 'Kategori B — 50.000 üzeri–500.000 tCO₂e', en: 'Category B — over 50,000–500,000 tCO₂e' },
+      { v: 'c', tr: 'Kategori C — 500.000 tCO₂e üzeri', en: 'Category C — over 500,000 tCO₂e' },
+      { v: 'unsure', tr: 'Bilmiyorum / henüz hesaplanmadı', en: 'Unknown / not yet calculated' }
     ]},
   { id: 'exportsEU', tr: "AB'ye SKDM kapsamındaki ürünleri ihraç ediyor musunuz? (çimento, demir-çelik, alüminyum, gübre, elektrik, hidrojen)", en: 'Do you export CBAM-covered goods to the EU? (cement, iron & steel, aluminium, fertilisers, electricity, hydrogen)',
     options: [
@@ -863,24 +921,16 @@ const PROFILER_QUESTIONS = [
       { v: 'no', tr: 'Hayır', en: 'No' },
       { v: 'unsure', tr: 'Emin değilim', en: 'Not sure' }
     ]},
-  { id: 'employees', tr: 'Ortalama çalışan sayınız?', en: 'Average number of employees?',
-    options: [
-      { v: 'u50', tr: "50'den az", en: 'Under 50' },
-      { v: '50-249', tr: '50–249', en: '50–249' },
-      { v: '250-999', tr: '250–999', en: '250–999' },
-      { v: '1000+', tr: '1000 ve üzeri', en: '1,000 or more' }
-    ]},
-  { id: 'turnover', tr: 'Yıllık net satış hasılatınız (TL)?', en: 'Annual net sales revenue (TRY)?',
-    options: [
-      { v: 'u250m', tr: '250 milyon TL altı', en: 'Under TRY 250M' },
-      { v: '250m-1b', tr: '250 milyon – 1 milyar TL', en: 'TRY 250M – 1B' },
-      { v: '1b+', tr: '1 milyar TL ve üzeri', en: 'TRY 1B or more' },
-      { v: 'unsure', tr: 'Emin değilim', en: 'Not sure' }
-    ]},
   { id: 'bankListed', tr: "BDDK denetimine tabi bir banka mısınız veya Borsa İstanbul'da işlem görüyor musunuz?", en: 'Are you a BRSA-regulated bank, or listed on Borsa Istanbul?',
     options: [
       { v: 'yes', tr: 'Evet', en: 'Yes' },
       { v: 'no', tr: 'Hayır', en: 'No' }
+    ]},
+  { id: 'tsrsAssessment', tr: 'Güncel KGK kapsam kararı ve usul/esaslarına göre TSRS kapsam testiniz belgelendi mi?', en: 'Has your TSRS scope test been documented against the current KGK scope decision and procedures?',
+    options: [
+      { v: 'in', tr: 'Evet — kapsamdayız', en: 'Yes — in scope' },
+      { v: 'out', tr: 'Evet — kapsam dışıyız', en: 'Yes — out of scope' },
+      { v: 'unknown', tr: 'Hayır / doğrulanmalı', en: 'No / needs verification' }
     ]},
   { id: 'euParent', tr: "AB'de yerleşik büyük bir ana şirketiniz ya da yüksek ciro yapan AB yavru şirketiniz/şubeniz var mı?", en: 'Do you have a large EU-based parent company, or a high-turnover EU subsidiary/branch?',
     options: [
@@ -901,14 +951,18 @@ const STATUS_OPTIONS = [
   { v: 0, tr: 'Başlanmadı', en: 'Not started' },
   { v: 1, tr: 'Devam ediyor', en: 'In progress' },
   { v: 2, tr: 'Hazır', en: 'Ready' },
-  { v: 3, tr: 'Doğrulandı', en: 'Verified' }
+  { v: 3, tr: 'Doğrulandı', en: 'Verified' },
+  { v: -1, tr: 'Uygulanamaz (N/A)', en: 'Not applicable (N/A)' }
 ];
 const APPLIC_META = {
-  applies:       { tag: 'tag-applies',   tr: 'YÜKÜMLÜSÜNÜZ',  en: 'MANDATORY' },
+  applies:       { tag: 'tag-applies',   tr: 'MUHTEMEL KAPSAM', en: 'LIKELY IN SCOPE' },
+  mrv_only:      { tag: 'tag-monitor',   tr: 'MRV KAPSAMI',      en: 'MRV SCOPE' },
+  supply_chain:  { tag: 'tag-verify',    tr: 'TİCARİ ETKİ',      en: 'COMMERCIAL IMPACT' },
   verify:        { tag: 'tag-verify',    tr: 'DOĞRULAYIN',    en: 'VERIFY' },
   monitor:       { tag: 'tag-monitor',   tr: 'İZLEYİN',       en: 'MONITOR' },
   opportunity:   { tag: 'tag-voluntary', tr: 'FIRSAT',        en: 'OPPORTUNITY' },
   voluntary:     { tag: 'tag-voluntary', tr: 'GÖNÜLLÜ',       en: 'VOLUNTARY' },
+  incomplete:    { tag: 'tag-na',        tr: 'PROFİLİ TAMAMLAYIN', en: 'COMPLETE PROFILE' },
   not_applicable:{ tag: 'tag-na',        tr: 'KAPSAM DIŞI',   en: 'NOT APPLICABLE' }
 };
 
@@ -918,24 +972,24 @@ const MODULES = [
     key: 'ets', urgency: 3,
     title: { tr: "Türkiye İklim Kanunu & Emisyon Ticaret Sistemi (ETS)", en: 'Turkish Climate Law & Emissions Trading System (ETS)' },
     authority: {
-      tr: '7552 sayılı İklim Kanunu (9 Temmuz 2025) ve Türkiye Emisyon Ticaret Sistemi Yönetmeliği çerçevesinde — T.C. İklim Değişikliği Başkanlığı. İlk izleme planları Aralık 2025 sonunda, ilk yıllık emisyon raporları 30 Nisan 2026\'da teslim edildi; 2026 indirimli cezalı pilot dönemdir.',
-      en: 'Under Law No. 7552 (9 July 2025) and the Turkish ETS Regulation — Presidency of Climate Change. First monitoring plans were due end of December 2025, first annual emission reports were due 30 April 2026; 2026 is a reduced-penalty pilot period.'
+      tr: '7552 sayılı İklim Kanunu ve 27 Ağustos 2026 tarihli Türkiye ETS Yönetmeliği. Ek-1 faaliyetleri MRV kapsamındadır; ETS izin ve tahsisat yükümlülükleri kural olarak yıllık emisyonu 50.000 tCO₂e üzerindeki Kategori B/C tesislere uygulanır. Yönetmelikteki istisnalar ve geçiş hükümleri ayrıca kontrol edilmelidir.',
+      en: 'Law No. 7552 and the Turkish ETS Regulation dated 27 August 2026. Annex 1 activities fall within MRV; ETS permitting and allowance duties generally apply to Category B/C installations emitting over 50,000 tCO₂e annually. Regulatory exclusions and transitional provisions must be checked separately.'
     },
     categories: [
       { key: 'permit', title: { tr: 'İzin & Kayıt', en: 'Permit & Registration' }, items: [
-        { id: 'ets-p1', w: 3, tr: 'Tesis bazında emisyon izni başvurusu hazırlandı', en: 'Facility-level emission permit application prepared' },
-        { id: 'ets-p2', w: 2, tr: 'Başvuru için gerekli Ek-3 belge seti tamamlandı', en: 'Required Annex-3 document set completed' },
-        { id: 'ets-p3', w: 2, tr: 'İzin yenileme takvimi (5 yıllık geçerlilik) takibe alındı', en: '5-year permit renewal calendar is being tracked' }
+        { id: 'ets-p1', w: 3, tr: 'Ek-1 faaliyeti, kapasite eşiği, istisnalar ve tesis kategorisi (A/B/C) belgelendi', en: 'Annex 1 activity, capacity threshold, exclusions and installation category (A/B/C) documented' },
+        { id: 'ets-p2', w: 3, tr: 'Kategori B/C ve ETS kapsamındaysa Ek-3 izin dosyası, 9 Temmuz 2028 temel geçiş tarihi ve olası uzatma dikkate alınarak planlandı', en: 'If Category B/C and in ETS scope, the Annex 3 permit file is planned against the 9 July 2028 baseline transitional date and any extension' },
+        { id: 'ets-p3', w: 2, tr: 'Beş yıllık izin yenileme ve değişiklikleri 30 gün içinde bildirme takvimi kuruldu', en: 'Five-year permit renewal and 30-day change-notification calendar established' }
       ]},
       { key: 'monitoring', title: { tr: 'İzleme', en: 'Monitoring' }, items: [
-        { id: 'ets-m1', w: 3, tr: 'Ek-6 ilkelerine uygun izleme planı hazırlanıp Başkanlığa sunuldu', en: 'Monitoring plan per Annex-6 principles prepared and submitted' },
+        { id: 'ets-m1', w: 3, tr: 'Ek-6 ilkelerine uygun emisyon izleme planı hazırlanıp elektronik sistemden sunuldu', en: 'Emissions monitoring plan aligned with Annex 6 prepared and submitted electronically' },
         { id: 'ets-m2', w: 2, tr: 'İzlemeden sorumlu iç personel/ekip atandı', en: 'Internal staff/team responsible for monitoring assigned' },
-        { id: 'ets-m3', w: 2, tr: 'Faaliyet verisi ve emisyon faktörü metodolojisi belgelendi', en: 'Activity-data and emission-factor methodology documented' }
+        { id: 'ets-m3', w: 3, tr: 'Pilot dönem işletmesiyse Ek-4 İzleme Metodolojisi Planı için 27 Ekim 2026 temel tarihi ve olası Kurul uzatması takip ediliyor', en: 'If in the pilot phase, the 27 October 2026 baseline date for the Annex 4 Monitoring Methodology Plan and any Board extension are tracked' }
       ]},
       { key: 'reporting', title: { tr: 'Raporlama', en: 'Reporting' }, items: [
-        { id: 'ets-r1', w: 3, tr: 'Bir önceki takvim yılına ait GHG raporu 30 Nisan\'a kadar hazır', en: 'Prior calendar-year GHG report ready ahead of the 30 April deadline' },
+        { id: 'ets-r1', w: 3, tr: 'Yıllık emisyon ve faaliyet seviyesi raporları 30 Nisan takvimine göre hazırlanıyor (verilirse azami bir aylık ek süre ayrıca izleniyor)', en: 'Annual emissions and activity-level reports are prepared for the 30 April deadline (with any granted extension of up to one month tracked separately)' },
         { id: 'ets-r2', w: 2, tr: 'Raporlama şablonu Ek-6 formatına uygun', en: 'Reporting template matches Annex-6 format' },
-        { id: 'ets-r3', w: 1, tr: 'Kapsam 1 (doğrudan) emisyon hesap kayıtları arşivleniyor', en: 'Scope 1 (direct) emission calculation records archived' }
+        { id: 'ets-r3', w: 2, tr: 'Faaliyet ve emisyon hesap kayıtları en az 10 yıl saklanıyor', en: 'Activity and emissions calculation records are retained for at least 10 years' }
       ]},
       { key: 'verification', title: { tr: 'Doğrulama', en: 'Verification' }, items: [
         { id: 'ets-v1', w: 3, tr: 'MEDAS üzerinden akredite doğrulayıcı kuruluş seçildi', en: 'Accredited verifier selected via MEDAS' },
@@ -949,7 +1003,7 @@ const MODULES = [
       ]},
       { key: 'financial', title: { tr: 'Finansal Hazırlık', en: 'Financial Readiness' }, items: [
         { id: 'ets-f1', w: 2, tr: 'Karbon maliyeti orta vadeli bütçeye dahil edildi', en: 'Carbon cost incorporated into medium-term budget' },
-        { id: 'ets-f2', w: 1, tr: 'Pilot dönem ceza risk analizi yapıldı', en: 'Pilot-period penalty risk analysis conducted' }
+        { id: 'ets-f2', w: 1, tr: 'Kurulca ilan edilecek pilot dönem kapsamı, süreleri ve yaptırım koşulları için senaryo analizi yapıldı', en: 'Scenario analysis covers the pilot-phase scope, timing and enforcement conditions to be set by the Board' }
       ]}
     ]
   },
@@ -957,12 +1011,12 @@ const MODULES = [
     key: 'tsrs', urgency: 3,
     title: { tr: 'TSRS — Türkiye Sürdürülebilirlik Raporlama Standartları & Güvence Denetimi', en: 'TSRS — Turkish Sustainability Reporting Standards & Assurance Audit' },
     authority: {
-      tr: 'Kamu Gözetimi, Muhasebe ve Denetim Standartları Kurumu (KGK) — ISSB IFRS S1/S2 uyumlu TSRS S1/S2, zorunlu raporlama 1 Ocak 2024\'ten itibaren yürürlükte. Bağımsız güvence denetimi 2026\'da başlıyor; KGK 16 Ocak 2026 kararıyla kapsamı sanayi/ihracatçı/karbon yoğun sektörlere genişletti.',
-      en: 'Public Oversight, Accounting and Auditing Standards Authority (KGK) — ISSB IFRS S1/S2-aligned TSRS S1/S2, mandatory reporting in force since 1 January 2024. Independent assurance audits begin in 2026; KGK\'s 16 January 2026 decision expanded scope to industrial, exporter and carbon-intensive sectors.'
+      tr: 'KGK tarafından yayımlanan TSRS 1 ve TSRS 2, 1 Ocak 2024 ve sonrasında başlayan dönemler için yürürlüktedir. Zorunlu raporlama ve güvence kapsamı; işletme türü, güncel eşikler, iki dönem kuralı, istisnalar ve KGK’nın 16 Ocak 2026 tarihli eşik kararı birlikte incelenerek belgelenmelidir.',
+      en: 'TSRS 1 and TSRS 2 issued by KGK are effective for periods beginning on or after 1 January 2024. Mandatory reporting and assurance scope must be documented by jointly assessing entity type, current thresholds, the two-period rule, exclusions and KGK’s threshold decision dated 16 January 2026.'
     },
     categories: [
       { key: 'scope', title: { tr: 'Kapsam Tespiti', en: 'Scope Determination' }, items: [
-        { id: 'tsrs-s1', w: 3, tr: 'Üç eşik kriterinden (aktif toplamı, net satış hasılatı, ortalama çalışan sayısı) en az ikisi test edildi', en: 'At least two of the three threshold criteria (total assets, net sales, average employees) tested' },
+        { id: 'tsrs-s1', w: 3, tr: 'Güncel KGK kapsam listeleri, üç ölçüt ve birbirini izleyen dönem kuralı birlikte test edildi', en: 'Current KGK scope lists, all three criteria and the consecutive-period rule were tested together' },
         { id: 'tsrs-s2', w: 2, tr: 'Kapsam durumu (zorunlu / gönüllü) yönetim kuruluna raporlandı', en: 'Scope status (mandatory / voluntary) reported to the board' }
       ]},
       { key: 'governance', title: { tr: 'Yönetişim (TSRS S1)', en: 'Governance (TSRS S1)' }, items: [
@@ -975,7 +1029,7 @@ const MODULES = [
       ]},
       { key: 'metrics', title: { tr: 'Ölçüt & Hedefler', en: 'Metrics & Targets' }, items: [
         { id: 'tsrs-o1', w: 3, tr: 'Kapsam 1 ve Kapsam 2 emisyon verisi düzenli toplanıyor', en: 'Scope 1 and Scope 2 emissions data collected regularly' },
-        { id: 'tsrs-o2', w: 1, tr: 'İlk iki yıl için Kapsam 3 muafiyeti bilinçli şekilde kullanılıyor', en: 'Scope 3 exemption for the first two years used deliberately' },
+        { id: 'tsrs-o2', w: 1, tr: 'İlk yıllık raporlama dönemindeki geçiş kolaylıklarının kullanılabilirliği ve sonraki dönem veri ihtiyacı belgelendi', en: 'Eligibility for first-annual-period transition relief and subsequent-period data needs are documented' },
         { id: 'tsrs-o3', w: 2, tr: 'Ölçülebilir azaltım / net sıfır hedefleri belirlendi', en: 'Measurable reduction / net-zero targets set' }
       ]},
       { key: 'report', title: { tr: 'Rapor Hazırlığı', en: 'Report Preparation' }, items: [
@@ -994,13 +1048,13 @@ const MODULES = [
     key: 'cbam', urgency: 3,
     title: { tr: 'AB Sınırda Karbon Düzenleme Mekanizması (SKDM / CBAM)', en: 'EU Carbon Border Adjustment Mechanism (CBAM)' },
     authority: {
-      tr: 'Avrupa Komisyonu — CBAM kesin uygulama dönemi 1 Ocak 2026\'da başladı; yetkili beyan sahibi başvuru son tarihi 31 Mart 2026 geçti. İlk yıllık beyan ve sertifika teslimi 30 Eylül 2027\'ye ertelendi (2026 ithalatı için). Not: yasal yükümlü AB\'deki ithalatçıdır — ancak gömülü emisyon verisini zamanında ve doğru sağlamak, Türk ihracatçı için ticari sürekliliğin ön koşuludur.',
-      en: 'European Commission — CBAM\'s definitive regime started 1 January 2026; the authorised-declarant application deadline of 31 March 2026 has passed. The first annual declaration and certificate surrender was postponed to 30 September 2027 (for 2026 imports). Note: the legal obligor is the EU importer — but supplying accurate, timely embedded-emissions data is now a precondition for commercial continuity for Turkish exporters.'
+      tr: 'AB CBAM kesin dönemi 1 Ocak 2026’da başladı. 2026 ithalatına ilişkin ilk yıllık beyan ve sertifika teslimi 30 Eylül 2027’dedir. Yasal yükümlü kural olarak AB ithalatçısı/yetkili CBAM beyan sahibidir; Türk ihracatçı için araçtaki sonuç hukuki yükümlülük değil, veri ve ticari ilişki etkisini gösterir.',
+      en: 'The EU CBAM definitive period began on 1 January 2026. The first annual declaration and certificate surrender for 2026 imports is due on 30 September 2027. The legal obligor is generally the EU importer/authorised CBAM declarant; for a Turkish exporter, this tool signals data and commercial impact rather than a direct legal duty.'
     },
     categories: [
       { key: 'scope', title: { tr: 'Ürün Kapsamı Tespiti', en: 'Product Scope Determination' }, items: [
         { id: 'cbam-s1', w: 3, tr: 'İhraç edilen ürünlerin GTİP/HS kodları SKDM Ek-I listesiyle karşılaştırıldı', en: 'Exported products\' HS/CN codes checked against CBAM Annex I' },
-        { id: 'cbam-s2', w: 1, tr: '50 ton de minimis eşiği altında kalan sevkiyatlar ayrıca işaretlendi', en: 'Shipments under the 50-tonne de minimis threshold flagged separately' }
+        { id: 'cbam-s2', w: 2, tr: '50 tonluk yıllık kütle eşiği ithalatçı bazında ve kapsadığı mal gruplarıyla birlikte doğrulandı (elektrik ve hidrojen için bu eşik kullanılmaz)', en: 'The annual 50-tonne mass threshold was verified per importer and for the goods it covers (the threshold does not apply to electricity or hydrogen)' }
       ]},
       { key: 'data', title: { tr: 'Gömülü Emisyon Verisi', en: 'Embedded Emissions Data' }, items: [
         { id: 'cbam-d1', w: 3, tr: 'Gömülü emisyon hesaplama metodolojisi (AB yöntemi / eşdeğer yöntem) belirlendi', en: 'Embedded-emissions methodology (EU method / equivalent method) determined' },
@@ -1009,7 +1063,7 @@ const MODULES = [
       ]},
       { key: 'declarant', title: { tr: 'Beyan & Yetkilendirme', en: 'Declaration & Authorisation' }, items: [
         { id: 'cbam-c1', w: 3, tr: "AB'li alıcınızın yetkili CBAM beyan sahibi statüsü teyit edildi", en: "Your EU buyer's authorised CBAM declarant status confirmed" },
-        { id: 'cbam-c2', w: 2, tr: 'Yıllık beyan takvimi (30 Eylül — ertelenmiş tarih) iç takvime işlendi', en: 'Annual declaration calendar (30 September — postponed date) added to internal calendar' }
+        { id: 'cbam-c2', w: 2, tr: '2026 ithalatı için ilk yıllık beyan ve sertifika teslim tarihi olan 30 Eylül 2027 veri takvimine işlendi', en: 'The 30 September 2027 first annual declaration and certificate-surrender date for 2026 imports is in the data calendar' }
       ]},
       { key: 'verification', title: { tr: 'Doğrulama', en: 'Verification' }, items: [
         { id: 'cbam-v1', w: 2, tr: 'Bağımsız doğrulama gereksinimleri (gerçek değer kullanımında zorunlu) biliniyor', en: 'Independent verification requirements (mandatory when using actual values) understood' },
@@ -1023,26 +1077,27 @@ const MODULES = [
   },
   {
     key: 'csrd', urgency: 2,
-    title: { tr: 'AB CSRD — Kapsam Testi (Omnibus I sonrası)', en: 'EU CSRD — Scope Check (post-Omnibus I)' },
+    title: { tr: 'AB CSRD & Değer Zinciri Bilgi Talepleri', en: 'EU CSRD & Value-chain Information Requests' },
     authority: {
-      tr: "Omnibus I Direktifi (18 Mart 2026 yürürlükte) CSRD kapsamını yaklaşık %80 daralttı: artık yalnızca 1000+ çalışan VE 450 milyon Euro+ ciro olan AB şirketleri kapsamda. Basitleştirilmiş ESRS (~320 veri noktası) Eylül 2026'da bekleniyor.",
-      en: 'The Omnibus I Directive (in force 18 March 2026) narrowed CSRD scope by roughly 80%: now only EU companies with 1,000+ employees AND €450M+ turnover are in scope. The simplified ESRS (~320 datapoints) is expected by September 2026.'
+      tr: 'CSRD/ESRS ve Omnibus değişiklikleri hızla gelişmektedir. Bu modül kesin kapsam sonucu üretmez; AB’deki kuruluş yapısı, konsolidasyon, uygulama takvimi, üye ülke aktarımı ve müşteriden gelen değer zinciri talepleri güncel EUR-Lex metinleri üzerinden doğrulanmalıdır.',
+      en: 'CSRD/ESRS and Omnibus amendments continue to evolve. This module does not determine scope; EU entity structure, consolidation, timing, Member State transposition and customer value-chain requests must be verified against current EUR-Lex texts.'
     },
     categories: [
       { key: 'eligibility', title: { tr: 'Kapsam Testi', en: 'Eligibility Test' }, items: [
-        { id: 'csrd-e1', w: 3, tr: 'AB\'de kuruluysanız: 1000+ çalışan VE 450M€+ ciro kriterleri test edildi', en: 'If EU-established: the 1,000+ employee AND €450M+ turnover criteria tested' },
-        { id: 'csrd-e2', w: 2, tr: 'Üçüncü ülke ana şirketiyseniz: AB\'de 450M€+ ciro ve AB yavru/şubede 200M€+ ciro test edildi', en: 'If a third-country parent: €450M+ EU turnover and €200M+ EU subsidiary/branch turnover tested' },
-        { id: 'csrd-e3', w: 1, tr: '"Wave 1" kapsamında raporluyorsanız, üye devlet muafiyet durumu takip ediliyor', en: 'If reporting as "Wave 1", Member State exemption status is being tracked' }
+        { id: 'csrd-e1', w: 3, tr: 'AB kuruluşları, şubeler, ana/yavru şirketler ve konsolidasyon çevresi tüzel kişi bazında haritalandı', en: 'EU entities, branches, parent/subsidiaries and consolidation perimeter mapped by legal entity' },
+        { id: 'csrd-e2', w: 3, tr: 'Güncel CSRD kapsam ölçütleri ve yürürlük takvimi EUR-Lex metni ve ilgili üye ülke mevzuatına göre test edildi', en: 'Current CSRD scope criteria and timeline tested against EUR-Lex and relevant Member State law' },
+        { id: 'csrd-e3', w: 1, tr: 'Doğrudan kapsam dışında olunsa bile AB müşterilerinden gelen sürdürülebilirlik veri talepleri envantere alındı', en: 'Sustainability-data requests from EU customers inventoried even if the company is outside direct scope' }
       ]},
       { key: 'readiness', title: { tr: 'Kapsamdaysanız Hazırlık', en: 'If In Scope: Readiness' }, items: [
-        { id: 'csrd-r1', w: 2, tr: 'Grup çevresi (AB kuruluşlar, listeli yavrular, üçüncü ülke ana şirketler) haritalandı', en: 'Group perimeter (EU entities, listed subsidiaries, third-country parents) mapped' },
-        { id: 'csrd-r2', w: 2, tr: 'Basitleştirilmiş ESRS taslağına göre veri toplama planı güncellendi', en: 'Data collection plan updated against the draft simplified ESRS' },
-        { id: 'csrd-r3', w: 1, tr: 'Değer zinciri bilgi talebi sınırlaması politikası oluşturuldu', en: 'Value-chain information-request cap policy established' }
+        { id: 'csrd-r1', w: 2, tr: 'Çifte önemlilik değerlendirmesi ve raporlama yönetişimi için sorumlular belirlendi', en: 'Owners assigned for double materiality assessment and reporting governance' },
+        { id: 'csrd-r2', w: 2, tr: 'Yürürlükteki ESRS ve resmen kabul edilmiş değişikliklere göre veri sözlüğü güncellendi', en: 'Data dictionary updated against the ESRS in force and formally adopted amendments' },
+        { id: 'csrd-r3', w: 1, tr: 'Değer zinciri bilgi talepleri için amaç, kapsam, kanıt ve veri koruma kontrolü kuruldu', en: 'Purpose, scope, evidence and data-protection controls established for value-chain information requests' }
       ]}
     ]
   },
   {
     key: 'voluntary', urgency: 1,
+    label: { tr: 'GÖNÜLLÜ', en: 'VOLUNTARY' },
     title: { tr: 'Gönüllü Çerçeveler & COP31 Görünürlüğü', en: 'Voluntary Frameworks & COP31 Visibility' },
     authority: {
       tr: 'GRI, CDP, SBTi ve ISSB temel seviye açıklamalar — kurumsal itibar, yeşil finansmana erişim ve COP31 dönemi tanınırlık fırsatları için gönüllü hazırlık.',
@@ -1068,63 +1123,71 @@ const MODULES = [
 /* ---------- APPLICABILITY ENGINE ---------- */
 function getApplicability(p) {
   const out = {};
-  // ETS
-  if (p.hq === 'turkey') {
-    out.ets = p.etsSector === 'yes' ? 'applies' : p.etsSector === 'unsure' ? 'verify' : 'monitor';
-  } else {
-    out.ets = 'not_applicable';
-  }
-  // TSRS — a Turkish Commercial Code / KGK framework: BDDK-regulated banks and BIST-listed
-  // companies are in scope regardless of HQ (a BIST listing implies a Turkey nexus); the
-  // size-threshold path only makes sense for Turkey-headquartered entities.
-  if (p.bankListed === 'yes') {
-    out.tsrs = 'applies';
-  } else if (p.hq !== 'turkey') {
-    out.tsrs = 'not_applicable';
-  } else {
-    const bigEmp = p.employees === '250-999' || p.employees === '1000+';
-    const bigRev = p.turnover === '1b+';
-    if (bigEmp && bigRev) out.tsrs = 'applies';
-    else if (bigEmp || bigRev || p.turnover === 'unsure') out.tsrs = 'verify';
-    else out.tsrs = 'voluntary';
-  }
-  // CBAM
-  out.cbam = p.exportsEU === 'yes' ? 'applies' : p.exportsEU === 'unsure' ? 'verify' : 'monitor';
-  // CSRD
-  if (p.hq === 'eu' && p.employees === '1000+') out.csrd = 'verify';
+  // The profiler produces indicative signals, never a legal determination.
+  // ETS: Annex 1 facilities are in MRV; Category B/C facilities are generally in ETS.
+  if (!p.etsSector) out.ets = 'incomplete';
+  else if (p.etsSector === 'yes' && (p.etsEmissions === 'b' || p.etsEmissions === 'c')) out.ets = 'applies';
+  else if (p.etsSector === 'yes' && p.etsEmissions === 'a') out.ets = 'mrv_only';
+  else if (p.etsSector === 'yes' || p.etsSector === 'unsure') out.ets = 'verify';
+  else out.ets = 'monitor';
+
+  // TSRS: only a documented scope assessment may produce a likely-in-scope signal.
+  if (!p.tsrsAssessment && !p.hq && !p.bankListed) out.tsrs = 'incomplete';
+  else if (p.tsrsAssessment === 'in') out.tsrs = 'applies';
+  else if (p.tsrsAssessment === 'out') out.tsrs = 'voluntary';
+  else if (p.hq === 'turkey' || p.bankListed === 'yes' || p.tsrsAssessment === 'unknown') out.tsrs = 'verify';
+  else out.tsrs = 'not_applicable';
+
+  // For Turkish exporters CBAM is normally a commercial/data impact; the EU importer is the obligor.
+  out.cbam = !p.exportsEU ? 'incomplete' : p.exportsEU === 'yes' ? 'supply_chain' : p.exportsEU === 'unsure' ? 'verify' : 'monitor';
+
+  // CSRD scope cannot safely be inferred from the limited profile; flag EU group links for verification.
+  if (!p.hq) out.csrd = 'incomplete';
+  else if (p.hq === 'eu') out.csrd = 'verify';
+  else if (!p.euParent) out.csrd = 'incomplete';
   else if (p.euParent === 'yes') out.csrd = 'verify';
   else if (p.euParent === 'small') out.csrd = 'monitor';
   else out.csrd = 'not_applicable';
   // Voluntary
-  out.voluntary = p.voluntary === 'no' ? 'monitor' : 'opportunity';
+  out.voluntary = !p.voluntary ? 'incomplete' : p.voluntary === 'no' ? 'monitor' : 'opportunity';
   return out;
 }
-function isActiveStatus(s) { return s === 'applies' || s === 'verify' || s === 'opportunity'; }
+function isActiveStatus(s) {
+  return s === 'applies' || s === 'mrv_only' || s === 'supply_chain' || s === 'verify' || s === 'opportunity';
+}
 
 /* ---------- SCORING ---------- */
 function moduleScore(mod) {
   let num = 0, den = 0;
   mod.categories.forEach(cat => cat.items.forEach(it => {
-    const v = state.items[it.id] || 0;
+    const v = Number.isInteger(state.items[it.id]) ? state.items[it.id] : 0;
+    if (v === -1) return;
     num += v * it.w;
     den += 3 * it.w;
   }));
-  return den ? Math.round((num / den) * 100) : 0;
+  return den ? Math.round((num / den) * 100) : null;
 }
 function moduleCounts(mod) {
   let total = 0, done = 0;
   mod.categories.forEach(cat => cat.items.forEach(it => {
+    const v = Number.isInteger(state.items[it.id]) ? state.items[it.id] : 0;
+    if (v === -1) return;
     total++;
-    if ((state.items[it.id] || 0) >= 2) done++;
+    if (v >= 2) done++;
   }));
   return { total, done };
 }
+function scoreText(score) { return score === null ? 'N/A' : `${score}%`; }
+function scoreWidth(score) { return score === null ? 0 : score; }
 
 /* ---------- i18n helper for JS-built strings ---------- */
 function t(obj) { return obj[state.lang] || obj.tr; }
 function applyStaticLang() {
   document.body.setAttribute('data-lang', state.lang);
   document.documentElement.lang = state.lang;
+  document.title = state.lang === 'tr'
+    ? 'COP31 Uyum Radarı — Kurumsal Hazırlık Öz-Değerlendirmesi'
+    : 'COP31 Compliance Radar — Corporate Readiness Self-assessment';
   // Swap any element carrying both data-tr and data-en to the active language's text.
   document.querySelectorAll('[data-tr][data-en]').forEach(el => {
     const val = state.lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-tr');
@@ -1139,7 +1202,7 @@ function renderProfiler() {
     <div class="section-head">
       <div class="eyebrow" data-tr="ADIM 01" data-en="STEP 01">ADIM 01</div>
       <h2 data-tr="Kurum Profili" data-en="Company Profile">Kurum Profili</h2>
-      <p class="lede" data-tr="Sekiz soru; hangi mevzuatın sizi kapsadığını ve nereden başlamanız gerektiğini belirler." data-en="Eight questions determine which regulations apply to you and where to start.">Sekiz soru; hangi mevzuatın sizi kapsadığını ve nereden başlamanız gerektiğini belirler.</p>
+      <p class="lede" data-tr="Sekiz soru; hukuki karar vermeden olası kapsam sinyallerini ve nereden başlamanız gerektiğini gösterir." data-en="Eight questions indicate potential scope signals and where to start, without making a legal determination.">Sekiz soru; hukuki karar vermeden olası kapsam sinyallerini ve nereden başlamanız gerektiğini gösterir.</p>
     </div>
     <div class="card" style="margin-bottom:18px;">
       <label class="q-title" for="companyName">
@@ -1176,10 +1239,10 @@ function renderProfiler() {
 /* ---------- RENDER: EXPOSURE MAP ---------- */
 function regimeDesc(key) {
   const d = {
-    ets: { tr: 'Emisyon izni, izleme, yıllık raporlama ve MEDAS doğrulaması.', en: 'Emission permit, monitoring, annual reporting and MEDAS verification.' },
-    tsrs: { tr: 'Sürdürülebilirlik raporu + 2026\'dan itibaren bağımsız güvence denetimi.', en: 'Sustainability report + independent assurance audit from 2026.' },
-    cbam: { tr: 'Gömülü emisyon verisi, yıllık beyan ve sertifika teslimi.', en: 'Embedded emissions data, annual declaration and certificate surrender.' },
-    csrd: { tr: 'Omnibus I sonrası daralan kapsam — büyük şirketler için hâlâ geçerli.', en: 'Narrowed post-Omnibus I — still binding for very large companies.' },
+    ets: { tr: 'Ek-1 MRV kapsamı; Kategori B/C için izin, tahsisat ve piyasa hazırlığı.', en: 'Annex 1 MRV scope; permitting, allowances and market readiness for Category B/C.' },
+    tsrs: { tr: 'KGK kapsam testi, TSRS raporu, veri izi ve güvence hazırlığı.', en: 'KGK scope test, TSRS report, data trail and assurance readiness.' },
+    cbam: { tr: 'AB ithalatçısı için yükümlülük; ihracatçı için gömülü emisyon verisi ve ticari etki.', en: 'Obligation for the EU importer; embedded-emissions data and commercial impact for the exporter.' },
+    csrd: { tr: 'AB grup kapsamı ve müşterilerden gelen değer zinciri bilgi talepleri.', en: 'EU group scope and customer value-chain information requests.' },
     voluntary: { tr: 'GRI/CDP/SBTi ve COP31 dönemi kurumsal görünürlük fırsatları.', en: 'GRI/CDP/SBTi and COP31-period corporate visibility opportunities.' }
   };
   return t(d[key]);
@@ -1190,21 +1253,21 @@ function renderExposure() {
     <div class="section-head">
       <div class="eyebrow" data-tr="ADIM 02" data-en="STEP 02">ADIM 02</div>
       <h2 data-tr="Maruziyet Haritası" data-en="Exposure Map">Maruziyet Haritası</h2>
-      <p class="lede" data-tr="Profilinize göre otomatik hesaplanan mevzuat kapsamı. Aşağıdaki her kart ilgili kontrol listesine bağlanır." data-en="Regulatory scope, computed automatically from your profile. Each card below links to its checklist.">Profilinize göre otomatik hesaplanan mevzuat kapsamı. Aşağıdaki her kart ilgili kontrol listesine bağlanır.</p>
+      <p class="lede" data-tr="Profilinize göre üretilen gösterge niteliğindeki kapsam sinyalleri. Her kart ilgili kontrol listesine bağlanır; nihai kapsam için resmî metin ve uzman incelemesi gerekir." data-en="Indicative scope signals generated from your profile. Each card links to its checklist; final scope requires official texts and expert review.">Profilinize göre üretilen gösterge niteliğindeki kapsam sinyalleri. Her kart ilgili kontrol listesine bağlanır; nihai kapsam için resmî metin ve uzman incelemesi gerekir.</p>
     </div>
     <div class="exposure-grid">`;
   MODULES.forEach(mod => {
     const status = applic[mod.key];
     const meta = APPLIC_META[status];
     const sc = moduleScore(mod);
-    html += `<div class="exp-card" data-jump="${mod.key}" role="button" tabindex="0" aria-label="${t(mod.title)} — ${t(meta)} — ${state.lang === 'tr' ? 'hazırlık' : 'readiness'} ${sc}%">
+    html += `<div class="exp-card" data-jump="${mod.key}" role="button" tabindex="0" aria-label="${t(mod.title)} — ${t(meta)} — ${state.lang === 'tr' ? 'hazırlık' : 'readiness'} ${scoreText(sc)}">
       <span class="status-tag ${meta.tag}">${t(meta)}</span>
       <h3>${t(mod.title)}</h3>
-      <div class="exp-authority">${mod.key.toUpperCase()}</div>
+      <div class="exp-authority">${modLabel(mod)}</div>
       <p class="exp-desc">${regimeDesc(mod.key)}</p>
       <div class="exp-score">
-        <div class="pbar"><i style="width:${sc}%"></i></div>
-        <div class="pbar-label"><span data-tr="Hazırlık" data-en="Readiness">Hazırlık</span><span>${sc}%</span></div>
+        <div class="pbar"><i style="width:${scoreWidth(sc)}%"></i></div>
+        <div class="pbar-label"><span data-tr="Hazırlık" data-en="Readiness">Hazırlık</span><span>${scoreText(sc)}</span></div>
       </div>
     </div>`;
   });
@@ -1231,7 +1294,7 @@ function renderModules() {
     html += `<div class="module${isOpen ? ' open' : ''}" data-mod="${mod.key}">
       <div class="module-head" data-toggle="${mod.key}">
         <div class="mh-left">
-          <div class="module-badge" style="border-color:${badgeColor(status)}; color:${badgeColor(status)};">${sc}%</div>
+          <div class="module-badge" style="border-color:${badgeColor(status)}; color:${badgeColor(status)};">${scoreText(sc)}</div>
           <div>
             <h3>${t(mod.title)}</h3>
             <div class="mh-meta"><span class="status-tag ${meta.tag}" style="margin-right:8px;">${t(meta)}</span>${counts.done}/${counts.total} <span data-tr="madde hazır veya doğrulandı" data-en="items ready or verified">madde hazır veya doğrulandı</span></div>
@@ -1246,7 +1309,7 @@ function renderModules() {
       html += `<div class="cat-block">
         <h4>${t(cat.title)}</h4>`;
       cat.items.forEach(it => {
-        const v = state.items[it.id] || 0;
+        const v = Number.isInteger(state.items[it.id]) ? state.items[it.id] : 0;
         html += `<div class="item-row">
           <div class="item-text" id="itemlabel-${it.id}"><span class="w" title="${state.lang === 'tr' ? 'Öncelik ağırlığı (1=düşük, 3=yüksek)' : 'Priority weight (1=low, 3=high)'}">w${it.w}</span>${t(it)}</div>
           <select class="status-select" data-item="${it.id}" data-v="${v}" aria-labelledby="itemlabel-${it.id}">`;
@@ -1268,7 +1331,8 @@ function renderModules() {
 }
 function badgeColor(status) {
   if (status === 'applies') return 'var(--tag-red)';
-  if (status === 'verify') return 'var(--tag-amber)';
+  if (status === 'verify' || status === 'supply_chain') return 'var(--tag-amber)';
+  if (status === 'mrv_only') return 'var(--tag-blue)';
   if (status === 'opportunity' || status === 'voluntary') return 'var(--tag-green)';
   if (status === 'monitor') return 'var(--tag-blue)';
   return 'var(--tag-faint)';
@@ -1280,7 +1344,9 @@ function overallScore() {
   let num = 0, den = 0;
   MODULES.forEach(mod => {
     if (isActiveStatus(applic[mod.key])) {
-      num += moduleScore(mod) * mod.urgency;
+      const score = moduleScore(mod);
+      if (score === null) return;
+      num += score * mod.urgency;
       den += mod.urgency;
     }
   });
@@ -1293,8 +1359,8 @@ function buildRoadmap() {
     if (!isActiveStatus(applic[mod.key])) return;
     mod.categories.forEach(cat => {
       cat.items.forEach(it => {
-        const v = state.items[it.id] || 0;
-        if (v < 2) {
+        const v = Number.isInteger(state.items[it.id]) ? state.items[it.id] : 0;
+        if (v !== -1 && v < 2) {
           rows.push({ mod, cat, it, v, priority: it.w * mod.urgency });
         }
       });
@@ -1311,13 +1377,13 @@ function renderDashboard() {
     <div class="section-head">
       <div class="eyebrow" data-tr="ADIM 04" data-en="STEP 04">ADIM 04</div>
       <h2 data-tr="Hazırlık Paneli" data-en="Readiness Dashboard">Hazırlık Paneli</h2>
-      <p class="lede" data-tr="Zorunlu ve doğrulanması gereken rejimler üzerinden ağırlıklandırılmış genel skorunuz, öncelikli aksiyon listeniz." data-en="Your weighted overall score across mandatory / verify-status regimes, and your prioritised action list.">Zorunlu ve doğrulanması gereken rejimler üzerinden ağırlıklandırılmış genel skorunuz, öncelikli aksiyon listeniz.</p>
+      <p class="lede" data-tr="Aktif kapsam sinyalleri için ağırlıklandırılmış hazırlık skoru ve öncelikli aksiyon listesi. Bu skor uygunluk oranı veya denetim görüşü değildir." data-en="A weighted readiness score and priority action list for active scope signals. This is not a compliance rate or audit opinion.">Aktif kapsam sinyalleri için ağırlıklandırılmış hazırlık skoru ve öncelikli aksiyon listesi. Bu skor uygunluk oranı veya denetim görüşü değildir.</p>
     </div>
     <div class="dash-grid">
       <div class="score-card">`;
   if (score === null) {
     html += `<div class="score-ring" style="display:flex;align-items:center;justify-content:center;border:2px dashed var(--line);border-radius:50%;">
-        <span style="font-family:var(--font-mono);font-size:12px;color:var(--text-faint);text-align:center;padding:0 14px;" data-tr="Zorunlu rejim tespit edilmedi" data-en="No mandatory regime detected">Zorunlu rejim tespit edilmedi</span>
+        <span style="font-family:var(--font-mono);font-size:12px;color:var(--text-faint);text-align:center;padding:0 14px;" data-tr="Puanlanabilir aktif kapsam sinyali yok" data-en="No scorable active scope signal">Puanlanabilir aktif kapsam sinyali yok</span>
       </div>`;
   } else {
     html += `<div class="score-ring" style="border-radius:50%; background:conic-gradient(var(--green) ${score * 3.6}deg, var(--surface-2) 0deg); display:flex; align-items:center; justify-content:center;">
@@ -1327,15 +1393,15 @@ function renderDashboard() {
         </div>
       </div>`;
   }
-  html += `<div class="score-big" data-tr="Zorunlu + doğrulanacak rejimlerin ağırlıklı ortalaması" data-en="Weighted average of mandatory + verify-status regimes">Zorunlu + doğrulanacak rejimlerin ağırlıklı ortalaması</div>
+  html += `<div class="score-big" data-tr="Aktif kapsam sinyallerinin ağırlıklı hazırlık ortalaması" data-en="Weighted readiness average of active scope signals">Aktif kapsam sinyallerinin ağırlıklı hazırlık ortalaması</div>
         <div class="regime-bars">`;
   MODULES.forEach(mod => {
     const sc = moduleScore(mod);
     const active = isActiveStatus(applic[mod.key]);
     html += `<div class="rb-row" style="opacity:${active ? 1 : .45}">
-      <div class="rb-name">${mod.key.toUpperCase()}</div>
-      <div class="pbar"><i style="width:${sc}%; background:${active ? 'linear-gradient(90deg,var(--amber),var(--green))' : 'var(--text-faint)'}"></i></div>
-      <div style="font-family:var(--font-mono); font-size:11px; text-align:right;">${sc}%</div>
+      <div class="rb-name">${modLabel(mod)}</div>
+      <div class="pbar"><i style="width:${scoreWidth(sc)}%; background:${active ? 'linear-gradient(90deg,var(--amber),var(--green))' : 'var(--text-faint)'}"></i></div>
+      <div style="font-family:var(--font-mono); font-size:11px; text-align:right;">${scoreText(sc)}</div>
     </div>`;
   });
   html += `</div>
@@ -1344,14 +1410,19 @@ function renderDashboard() {
         <h3 style="font-size:16px; margin-bottom:14px;" data-tr="Öncelikli Aksiyon Listesi" data-en="Priority Action List">Öncelikli Aksiyon Listesi</h3>
         <div class="roadmap-list">`;
   if (roadmap.length === 0) {
-    html += `<div class="road-item"><div class="rt" data-tr="Harika — mevcut kapsamda bekleyen kritik madde yok. Profilinizi ve modülleri periyodik olarak gözden geçirin." data-en="Great — no pending critical items in current scope. Revisit your profile and modules periodically.">Harika — mevcut kapsamda bekleyen kritik madde yok. Profilinizi ve modülleri periyodik olarak gözden geçirin.</div></div>`;
+    const anyActive = MODULES.some(m => isActiveStatus(getApplicability(state.profile)[m.key]));
+    if (!anyActive) {
+      html += `<div class="road-item"><div class="rt" data-tr="Öncelik listesi için önce Adım 01’de kurum profilinizi tamamlayın. Profil yanıtlanmadan hangi rejimlerin sizi kapsadığı belirlenemez." data-en="Complete your company profile in Step 01 first. Without profile answers the applicable regimes cannot be determined.">Öncelik listesi için önce Adım 01’de kurum profilinizi tamamlayın. Profil yanıtlanmadan hangi rejimlerin sizi kapsadığı belirlenemez.</div></div>`;
+    } else {
+      html += `<div class="road-item"><div class="rt" data-tr="Harika — mevcut kapsamda bekleyen kritik madde yok. Profilinizi ve modülleri periyodik olarak gözden geçirin." data-en="Great — no pending critical items in current scope. Revisit your profile and modules periodically.">Harika — mevcut kapsamda bekleyen kritik madde yok. Profilinizi ve modülleri periyodik olarak gözden geçirin.</div></div>`;
+    }
   } else {
     roadmap.forEach(r => {
       html += `<div class="road-item">
         <div class="dot" style="background:${badgeColor(getApplicability(state.profile)[r.mod.key])}"></div>
         <div>
           <div class="rt">${t(r.it)}</div>
-          <div class="rm">${r.mod.key.toUpperCase()} · ${t(r.cat.title)} · <span data-tr="öncelik" data-en="priority">öncelik</span> ${r.priority}</div>
+          <div class="rm">${modLabel(r.mod)} · ${t(r.cat.title)} · <span data-tr="öncelik" data-en="priority">öncelik</span> ${r.priority}</div>
         </div>
       </div>`;
     });
@@ -1370,13 +1441,13 @@ function renderExport() {
     </div>
     <div class="export-grid">
       <div class="export-card">
-        <h4 data-tr="📜 Hazırlık Sertifikası (PDF)" data-en="📜 Readiness Certificate (PDF)">📜 Hazırlık Sertifikası (PDF)</h4>
-        <p data-tr="Tek sayfalık, damgalı özet belge — tıklayınca doğrudan bilgisayarınıza PDF olarak iner." data-en="A one-page, sealed summary document — downloads straight to your computer as a PDF.">Tek sayfalık, damgalı özet belge — tıklayınca doğrudan bilgisayarınıza PDF olarak iner.</p>
+        <h4 data-tr="📄 Hazırlık Özeti (PDF)" data-en="📄 Readiness Summary (PDF)">📄 Hazırlık Özeti (PDF)</h4>
+        <p data-tr="Tek sayfalık gösterge niteliğinde yönetim özeti — resmî sertifika veya uygunluk beyanı değildir." data-en="A one-page indicative management summary — not an official certificate or compliance statement.">Tek sayfalık gösterge niteliğinde yönetim özeti — resmî sertifika veya uygunluk beyanı değildir.</p>
         <button class="btn" id="certBtn" data-tr="PDF İndir →" data-en="Download PDF →">PDF İndir →</button>
       </div>
       <div class="export-card">
-        <h4 data-tr="📋 Tam Denetim Raporu (PDF)" data-en="📋 Full Audit Report (PDF)">📋 Tam Denetim Raporu (PDF)</h4>
-        <p data-tr="Tüm modüller, maddeler ve notlarla birlikte çok sayfalı ayrıntılı rapor — doğrudan indirilir." data-en="A multi-page detailed report with all modules, items and notes — downloads directly.">Tüm modüller, maddeler ve notlarla birlikte çok sayfalı ayrıntılı rapor — doğrudan indirilir.</p>
+        <h4 data-tr="📋 Ayrıntılı Öz-Değerlendirme (PDF)" data-en="📋 Detailed Self-assessment (PDF)">📋 Ayrıntılı Öz-Değerlendirme (PDF)</h4>
+        <p data-tr="Tüm modüller, kontroller, durumlar ve notlarla birlikte ayrıntılı çalışma raporu." data-en="A detailed working report with all modules, controls, statuses and notes.">Tüm modüller, kontroller, durumlar ve notlarla birlikte ayrıntılı çalışma raporu.</p>
         <button class="btn secondary" id="reportBtn" data-tr="PDF İndir →" data-en="Download PDF →">PDF İndir →</button>
       </div>
       <div class="export-card">
@@ -1384,6 +1455,88 @@ function renderExport() {
         <p data-tr="Tüm madde durumlarını elektronik tabloya aktarın." data-en="Export all item statuses to a spreadsheet.">Tüm madde durumlarını elektronik tabloya aktarın.</p>
         <button class="btn ghost" id="csvBtn" data-tr="CSV İndir →" data-en="Download CSV →">CSV İndir →</button>
       </div>
+    </div>
+  </section>`;
+}
+
+/* ---------- RENDER: METHODOLOGY & SOURCES ---------- */
+function renderMethodology() {
+  const tr = state.lang === 'tr';
+  const sources = [
+    {
+      regime: tr ? 'Türkiye ETS / MRV' : 'Türkiye ETS / MRV',
+      basis: tr ? '7552 sayılı İklim Kanunu; 27.08.2026 tarihli Türkiye ETS Yönetmeliği (RG 33353)' : 'Climate Law No. 7552; Turkish ETS Regulation dated 27 Aug 2026 (OG 33353)',
+      url: 'https://www.resmigazete.gov.tr/eskiler/2026/08/20260827.htm', label: tr ? 'Resmî Gazete — 27.08.2026' : 'Official Gazette — 27 Aug 2026'
+    },
+    {
+      regime: 'TSRS',
+      basis: tr ? 'TSRS 1/2; kapsam, eşik, usul/esas ve güvence kararları' : 'TSRS 1/2; scope, threshold, procedures and assurance decisions',
+      url: 'https://www.kgk.gov.tr/SustainabilityDetailForm/11787/Yasal%20D%C3%BCzenlemeler', label: tr ? 'KGK yasal düzenlemeleri' : 'KGK legal regulations'
+    },
+    {
+      regime: 'CBAM',
+      basis: tr ? 'AB 2023/956 sayılı Tüzüğün 20.10.2025 konsolide metni' : 'Consolidated text of EU Regulation 2023/956 as of 20 Oct 2025',
+      url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02023R0956-20251020', label: 'EUR-Lex'
+    },
+    {
+      regime: 'CSRD / ESRS',
+      basis: tr ? '2022/2464 sayılı Direktif ve güncel değişiklik mevzuatı' : 'Directive 2022/2464 and current amending legislation',
+      url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2464', label: 'EUR-Lex'
+    },
+    {
+      regime: 'COP31',
+      basis: tr ? 'Konferans tarih ve ev sahibi bilgileri' : 'Conference dates and host information',
+      url: 'https://unfccc.int/cop31/the-road-to-antalya', label: 'UNFCCC'
+    }
+  ];
+  return `<section id="methodology">
+    <div class="section-head">
+      <div class="eyebrow">${tr ? 'ŞEFFAFLIK NOTU' : 'TRANSPARENCY NOTE'}</div>
+      <h2>${tr ? 'Metodoloji, Kaynaklar & Sınırlar' : 'Methodology, Sources & Limitations'}</h2>
+      <p class="lede">${tr
+        ? 'Aracın neyi ölçtüğünü, skorun nasıl üretildiğini ve hangi resmî metinlerin esas alındığını açıklar.'
+        : 'Explains what the tool measures, how scores are produced and which official texts underpin the content.'}</p>
+      <div class="method-meta">
+        <span class="method-chip">${tr ? 'Sürüm' : 'Version'} ${CONFIG.version}</span>
+        <span class="method-chip">${tr ? 'Metodoloji' : 'Methodology'} ${CONFIG.methodologyVersion}</span>
+        <span class="method-chip">${tr ? 'Mevzuat incelemesi' : 'Regulatory review'} 02.09.2026</span>
+        <span class="method-chip">${tr ? 'Bağımsız hukuki güvence: yok' : 'Independent legal assurance: none'}</span>
+      </div>
+    </div>
+    <div class="method-grid">
+      <article class="method-card">
+        <h3>${tr ? '1. Kapsam sinyali' : '1. Scope signal'}</h3>
+        <p>${tr
+          ? 'Profil yanıtları yalnızca muhtemel kapsam, MRV kapsamı, ticari etki, doğrulama veya izleme sinyali üretir. “Muhtemel kapsam” dahi kesin hukuki sonuç değildir; tesis, tüzel kişi, ürün kodu, eşik, istisna ve geçiş hükmü ayrıca test edilmelidir.'
+          : 'Profile answers produce only likely-scope, MRV-scope, commercial-impact, verify or monitor signals. Even “likely in scope” is not a legal conclusion; installation, legal entity, product code, threshold, exclusion and transitional rules require separate testing.'}</p>
+      </article>
+      <article class="method-card">
+        <h3>${tr ? '2. Hazırlık skoru' : '2. Readiness score'}</h3>
+        <p>${tr
+          ? 'Her kontrol Başlanmadı=0, Devam=1, Hazır=2, Doğrulandı=3 olarak puanlanır ve w1–w3 öncelik ağırlığıyla çarpılır. Formül: ağırlıklı puan / mümkün olan ağırlıklı azami puan. “Uygulanamaz (N/A)” seçilen kontroller pay ve paydadan çıkarılır.'
+          : 'Each control is scored Not started=0, In progress=1, Ready=2, Verified=3 and multiplied by its w1–w3 priority weight. Formula: weighted score / maximum possible weighted score. Controls marked Not applicable (N/A) are excluded from numerator and denominator.'}</p>
+      </article>
+      <article class="method-card">
+        <h3>${tr ? '3. Genel skor ve yol haritası' : '3. Overall score and roadmap'}</h3>
+        <p>${tr
+          ? 'Genel skor, aktif kapsam sinyallerindeki modül skorlarını aciliyet ağırlığıyla (ETS/TSRS/CBAM=3, CSRD=2, gönüllü=1) birleştirir. Yol haritası, skoru 0 veya 1 olan kontrolleri ağırlık × aciliyet değerine göre sıralar. Bu bir risk modeli veya denetim örneklemesi değildir.'
+          : 'The overall score combines module scores for active scope signals using urgency weights (ETS/TSRS/CBAM=3, CSRD=2, voluntary=1). The roadmap ranks controls scored 0 or 1 by weight × urgency. This is not a risk model or audit sampling method.'}</p>
+      </article>
+      <article class="method-card">
+        <h3>${tr ? '4. Kullanım sınırları' : '4. Limitations'}</h3>
+        <ul>
+          <li>${tr ? 'Yanıtlar tarayıcınızda yerel olarak saklanır; araç sunucuya veri göndermez.' : 'Answers are stored locally in your browser; the tool does not send them to a server.'}</li>
+          <li>${tr ? 'Skor, kontrolün gerçekten etkili çalıştığını kanıtlamaz; “Doğrulandı” seçimi kullanıcı beyanıdır.' : 'A score does not prove operating effectiveness; “Verified” is a user assertion.'}</li>
+          <li>${tr ? 'Döviz, bilanço, konsolidasyon, ürün kodu ve tesis sınırı gibi ayrıntılar otomatik doğrulanmaz.' : 'Currency, balance-sheet, consolidation, product-code and installation-boundary details are not automatically validated.'}</li>
+          <li>${tr ? 'Yayımdan önce hukuk, sürdürülebilirlik raporlaması ve sektör uzmanı incelemesi önerilir.' : 'Legal, sustainability-reporting and sector-expert review is recommended before publication.'}</li>
+        </ul>
+      </article>
+    </div>
+    <div class="source-table-wrap">
+      <table class="source-table">
+        <thead><tr><th>${tr ? 'Konu' : 'Topic'}</th><th>${tr ? 'Esas alınan metin' : 'Source basis'}</th><th>${tr ? 'Resmî kaynak' : 'Official source'}</th></tr></thead>
+        <tbody>${sources.map(s => `<tr><td>${s.regime}</td><td>${s.basis}</td><td><a href="${s.url}" target="_blank" rel="noopener">${s.label}</a></td></tr>`).join('')}</tbody>
+      </table>
     </div>
   </section>`;
 }
@@ -1396,6 +1549,9 @@ function slugify(s) {
     .replace(/^_+|_+$/g, '')
     .slice(0, 60) || 'rapor';
 }
+function modLabel(mod) {
+  return mod.label ? t(mod.label) : mod.key.toUpperCase();
+}
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
@@ -1406,7 +1562,7 @@ let scrollSpyBottomHandler = null;
 function setupScrollSpy() {
   if (scrollSpyObserver) scrollSpyObserver.disconnect();
   if (scrollSpyBottomHandler) window.removeEventListener('scroll', scrollSpyBottomHandler);
-  const sectionIds = ['profiler', 'exposure', 'modules', 'dashboard', 'export'];
+  const sectionIds = ['profiler', 'exposure', 'modules', 'dashboard', 'export', 'methodology'];
   const navLinks = {};
   sectionIds.forEach(id => {
     const link = document.querySelector(`nav.stepper a[href="#${id}"]`);
@@ -1439,7 +1595,7 @@ function setupScrollSpy() {
 function renderAll() {
   const scrollY = window.scrollY;
   const root = document.getElementById('app-root');
-  root.innerHTML = renderProfiler() + renderExposure() + renderModules() + renderDashboard() + renderExport();
+  root.innerHTML = renderProfiler() + renderExposure() + renderModules() + renderDashboard() + renderExport() + renderMethodology();
   applyStaticLang();
   wireEvents();
   window.scrollTo(0, scrollY);
@@ -1503,6 +1659,8 @@ function wireEvents() {
       state.items[id] = parseInt(e.target.value, 10);
       saveState();
       renderAll();
+      const again = document.querySelector(`select.status-select[data-item="${id}"]`);
+      if (again) { try { again.focus({ preventScroll: true }); } catch (err) { again.focus(); } }
     });
   });
   document.querySelectorAll('textarea.notes').forEach(ta => {
@@ -1536,9 +1694,9 @@ const PDF_PAGE_W = 210, PDF_PAGE_H = 297, PDF_MARGIN = 18;
 
 function pdfStatusColor(status) {
   if (status === 'applies') return PDF_C_SMALL.red;
-  if (status === 'verify') return PDF_C_SMALL.amber;
+  if (status === 'verify' || status === 'supply_chain') return PDF_C_SMALL.amber;
   if (status === 'opportunity' || status === 'voluntary') return PDF_C_SMALL.green;
-  if (status === 'monitor') return PDF_C_SMALL.blue;
+  if (status === 'monitor' || status === 'mrv_only') return PDF_C_SMALL.blue;
   return PDF_C.textDim;
 }
 
@@ -1556,7 +1714,7 @@ function pdfFooter(doc, pageNum) {
   doc.setFont('DejaVuSans', 'normal');
   doc.setFontSize(7.5);
   doc.setTextColor(...PDF_C.textDim);
-  doc.text(state.lang === 'tr' ? 'COP31 Uyum Radarı — Omnius Creative' : 'COP31 Compliance Radar — Omnius Creative', PDF_MARGIN, PDF_PAGE_H - 10);
+  doc.text(state.lang === 'tr' ? 'COP31 Uyum Radarı v0.1.0 — inceleme 02.09.2026' : 'COP31 Compliance Radar v0.1.0 — reviewed 02.09.2026', PDF_MARGIN, PDF_PAGE_H - 10);
   doc.text(String(pageNum), PDF_PAGE_W - PDF_MARGIN, PDF_PAGE_H - 10, { align: 'right' });
   doc.setDrawColor(...PDF_C.line);
   doc.setLineWidth(0.3);
@@ -1634,7 +1792,7 @@ function pdfDrawSummary(doc, score, applic) {
     doc.setTextColor(...pdfStatusColor(applic[mod.key]));
     doc.text(t(meta), col2, lastLineY);
     doc.setTextColor(...PDF_C.text);
-    doc.text(`${moduleScore(mod)}%`, col3, lastLineY, { align: 'right' });
+    doc.text(scoreText(moduleScore(mod)), col3, lastLineY, { align: 'right' });
     doc.setDrawColor(...PDF_C.line); doc.setLineWidth(0.2);
     doc.line(PDF_MARGIN, lastLineY + 3, PDF_PAGE_W - PDF_MARGIN, lastLineY + 3);
     ty = lastLineY;
@@ -1656,7 +1814,7 @@ function generateCertificatePDF() {
     const lines = doc.splitTextToSize(disclaimer, PDF_PAGE_W - 2 * PDF_MARGIN);
     lines.forEach((line, i) => doc.text(line, PDF_MARGIN, y + i * 4.2));
     pdfFooter(doc, 1);
-    doc.save(`cop31-sertifika-${slugify(state.profile.companyName)}.pdf`);
+    doc.save(`cop31-hazirlik-ozeti-${slugify(state.profile.companyName)}.pdf`);
     return true;
   } catch (e) {
     console.error('PDF generation failed', e);
@@ -1693,7 +1851,7 @@ function generateReportPDF() {
         doc.text(t(cat.title), PDF_MARGIN, y);
         y += 5.5;
         cat.items.forEach(it => {
-          const v = state.items[it.id] || 0;
+          const v = Number.isInteger(state.items[it.id]) ? state.items[it.id] : 0;
           const label = t(STATUS_OPTIONS.find(s => s.v === v));
           const itemLines = doc.splitTextToSize(`• ${t(it)}`, PDF_PAGE_W - 2 * PDF_MARGIN - 32);
           y = pdfCheckPageBreak(doc, y, itemLines.length * 4.6 + 2, pageRef);
@@ -1723,7 +1881,7 @@ function generateReportPDF() {
       y += 4;
     });
     pdfFooter(doc, pageRef.n);
-    doc.save(`cop31-rapor-${slugify(state.profile.companyName)}.pdf`);
+    doc.save(`cop31-oz-degerlendirme-${slugify(state.profile.companyName)}.pdf`);
     return true;
   } catch (e) {
     console.error('PDF generation failed', e);
@@ -1761,7 +1919,7 @@ function buildPrintable(mode) {
     html += `<tr style="border-bottom:1px solid #ddd;">
       <td style="padding:8px 4px;">${t(mod.title)}</td>
       <td style="padding:8px 4px;">${t(meta)}</td>
-      <td style="padding:8px 4px; text-align:right; font-family:'IBM Plex Mono',monospace;">${moduleScore(mod)}%</td>
+      <td style="padding:8px 4px; text-align:right; font-family:'IBM Plex Mono',monospace;">${scoreText(moduleScore(mod))}</td>
     </tr>`;
   });
   html += `</tbody></table>`;
@@ -1773,7 +1931,7 @@ function buildPrintable(mode) {
       mod.categories.forEach(cat => {
         html += `<h4 style="font-size:13px; margin:14px 0 6px; color:#555;">${t(cat.title)}</h4><ul style="margin:0 0 8px; padding-left:18px; font-size:12.5px;">`;
         cat.items.forEach(it => {
-          const v = state.items[it.id] || 0;
+          const v = Number.isInteger(state.items[it.id]) ? state.items[it.id] : 0;
           const label = STATUS_OPTIONS.find(s => s.v === v);
           html += `<li style="margin-bottom:4px;">${t(it)} — <strong>${t(label)}</strong></li>`;
         });
@@ -1787,8 +1945,8 @@ function buildPrintable(mode) {
 
   html += `<div style="margin-top:30px; font-size:10.5px; color:#888; border-top:1px solid #ccc; padding-top:12px;">
     ${state.lang === 'tr'
-      ? 'Bu belge kurum içi öz-değerlendirme amacıyla otomatik oluşturulmuştur; resmî bir denetim görüşü veya uygunluk beyanı değildir. Omnius Creative — COP31 Uyum Radarı.'
-      : 'This document was generated automatically for internal self-assessment purposes; it is not a formal audit opinion or compliance statement. Omnius Creative — COP31 Compliance Radar.'}
+      ? 'Bu belge kurum içi öz-değerlendirme amacıyla otomatik oluşturulmuştur; resmî bir denetim görüşü veya uygunluk beyanı değildir. Sürüm 0.1.0 · Metodoloji 2026.09 · Mevzuat incelemesi 02.09.2026.'
+      : 'This document was generated automatically for internal self-assessment purposes; it is not a formal audit opinion or compliance statement. Version 0.1.0 · Methodology 2026.09 · Regulatory review 02.09.2026.'}
   </div></div>`;
 
   target.innerHTML = html;
@@ -1800,7 +1958,7 @@ function exportCSV() {
   MODULES.forEach(mod => {
     mod.categories.forEach(cat => {
       cat.items.forEach(it => {
-        const v = state.items[it.id] || 0;
+        const v = Number.isInteger(state.items[it.id]) ? state.items[it.id] : 0;
         const label = t(STATUS_OPTIONS.find(s => s.v === v));
         rows.push([mod.key, cat.key, it.id, it.tr, it.en, it.w, label]);
       });
@@ -1811,6 +1969,13 @@ function exportCSV() {
   MODULES.forEach(mod => {
     if (state.notes[mod.key]) rows.push([mod.key, state.notes[mod.key]]);
   });
+  rows.push([]);
+  rows.push(['metadata', 'version', CONFIG.version]);
+  rows.push(['metadata', 'methodology_version', CONFIG.methodologyVersion]);
+  rows.push(['metadata', 'regulatory_review_date', CONFIG.regulatoryReviewISO]);
+  rows.push(['metadata', 'disclaimer', state.lang === 'tr'
+    ? 'Gösterge niteliğinde öz-değerlendirmedir; hukuki kapsam kararı veya denetim görüşü değildir.'
+    : 'Indicative self-assessment; not a legal scope determination or audit opinion.']);
   const csv = rows.map(r => r.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
   const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
@@ -1834,7 +1999,7 @@ function tickCountdown() {
   const diff = CONFIG.cop31Start - now;
   const el = document.getElementById('cdCop31');
   if (diff > 0) {
-    const days = Math.floor(diff / 86400000);
+    const days = Math.ceil(diff / 86400000);
     el.innerHTML = `${days} <small>${state.lang === 'tr' ? 'gün' : 'days'}</small>`;
   } else if (now < CONFIG.cop31End) {
     el.innerHTML = state.lang === 'tr' ? 'Devam ediyor' : 'In progress';
