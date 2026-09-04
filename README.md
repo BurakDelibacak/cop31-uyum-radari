@@ -50,7 +50,7 @@ gösterilebilecek bir hazırlık raporu üreten ücretsiz bir öz-değerlendirme
 
 ### Nasıl kullanılır?
 
-1. [`cop31-uyum-radari.html`](./cop31-uyum-radari.html) dosyasını indirin
+1. [`cop31-uyum-radari.html`](index.html) dosyasını indirin
 2. Herhangi bir tarayıcıda (Chrome, Edge, Safari, Firefox) çift tıklayarak açın — kuruluma gerek yok
 3. Kurum profilinizi doldurun, ilgili modülleri işaretleyin, hazırlık raporunuzu indirin
 
