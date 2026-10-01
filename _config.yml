@@ -1,0 +1,18 @@
+# GitHub Pages yapılandırması
+#
+# Amaç: deponun yalnızca yönlendirme sayfasını yayımlamak.
+# Aracın arşiv kopyası ve belgeler depoda okunabilir kalır,
+# ancak Pages üzerinden ikinci bir canlı yüzey olarak servis edilmez.
+#
+# Tek canlı sürüm:
+# https://omniuscreative.com/surdurulebilirlik/cop31-uyum-radari/arac/
+
+exclude:
+  - src/
+  - CHANGELOG.md
+  - LISANS-NOTU.md
+  - README.md
+  - LICENSE
+  - mevzuat-parametreleri.json
+  - screenshots/
+  - cop31-uyum-radari-tanitim-katalogu.pdf

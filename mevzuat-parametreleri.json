@@ -1,0 +1,326 @@
+{
+  "surum": "2026.10.03",
+  "son_kontrol_tarihi": "2026-10-01",
+  "aciklama": "COP31 Uyum Radari mevzuat parametre blogu. Uygulama akisindan ayri tutulur. Her kaydin durumu ayri etiketlenir: yururlukte | kurul_karari | oneri_trilog. 'oneri_trilog' durumundaki hicbir kayit kullaniciya mevcut yukumluluk olarak gosterilmez.",
+  "durum_etiketleri": {
+    "yururlukte": "Yürürlükte",
+    "kurul_karari": "Kurul kararı ile belirlendi",
+    "oneri_trilog": "Öneri — yasama süreci devam ediyor"
+  },
+  "kapsam_disi_moduller": {
+    "uyari": "Bu parametre dosyası TR ETS, CBAM, TSRS ve CSRD kayıtlarını kapsar. Bunların dışında kalan modüller bu dosyadan beslenmez; kendi kaynak referansını ve son kontrol tarihini taşımalıdır.",
+    "liste": ["Gönüllü Çerçeveler & COP31 Görünürlüğü"]
+  },
+  "tr_ets": {
+    "dayanak": "Türkiye Emisyon Ticaret Sistemi Yönetmeliği",
+    "yururluk_tarihi": "2026-08-27",
+    "durum": "yururlukte",
+    "pilot_donem": {
+      "yillar": [
+        2026,
+        2027
+      ],
+      "kapsam_karari": "KPK/2026/1",
+      "karar_tarihi": "2026-09-03",
+      "durum": "kurul_karari",
+      "sektorler": [
+        "Elektrik üretimi",
+        "Çimento",
+        "Demir-çelik",
+        "Alüminyum",
+        "Gübre"
+      ],
+      "kategoriler": [
+        "B",
+        "C"
+      ],
+      "ucretsiz_tahsisat_orani": 100,
+      "ucretsiz_tahsisat_yontemi": "Kıyas yöntemi",
+      "modul_girisi": "Türkiye Emisyon Ticaret Sistemi Yönetmeliği 27 Ağustos 2026 tarihinde yürürlüğe girdi. Pilot dönem 2026 ve 2027 sistem yıllarını kapsar. 2026 sistem yılında kapsamdaki işletmeler yalnızca raporlama yükümlülüğüne tabidir; tamamlayıcı tahsisat fiyatına ilişkin yöntem bu dönemde geliştirilir. 2027 sistem yılı itibarıyla fiyat mekanizması başlatılır. Ücretsiz tahsisat oranı pilot dönem boyunca kıyas yöntemine göre %100 olarak belirlenmiştir."
+    },
+    "birinci_uygulama_donemi": {
+      "yillar": "2028-2035",
+      "alt_donemler": [
+        "2028-2030",
+        "2031-2035"
+      ],
+      "kapsam": "Yönetmelik EK-1 faaliyetlerini yürüten tesisler",
+      "not": "Cam, seramik, kireç, kâğıt, rafineri ve kimya gibi EK-1 faaliyetleri pilot dönemde değil, birinci uygulama döneminde kapsama girer."
+    },
+    "tesis_kategorileri": {
+      "A": "≤ 50.000 ton CO2e",
+      "B": "> 50.000 ve ≤ 500.000 ton CO2e",
+      "C": "> 500.000 ton CO2e"
+    },
+    "yukumlulukler": [
+      "Sera gazı emisyon izni",
+      "İzleme planı (onaylı)",
+      "İzleme metodolojisi planı (İMP)",
+      "Yıllık sera gazı emisyon raporu",
+      "Yıllık faaliyet seviyesi raporu (FSR)",
+      "Doğrulama"
+    ],
+    "izleme_plani_sunum_suresi": "Emisyonların ilk izlenmeye başlandığı tarihten en az 6 ay önce"
+  },
+  "cbam": {
+    "dayanak": "Regulation (EU) 2023/956; 2025/2083 ile değişik",
+    "kesin_donem_baslangici": "2026-01-01",
+    "durum": "yururlukte",
+    "kapsam_sektorleri": [
+      "Demir-çelik",
+      "Alüminyum",
+      "Çimento",
+      "Gübre",
+      "Elektrik",
+      "Hidrojen"
+    ],
+    "yukumlu_taraf": "AB'deki yetkili CBAM beyan sahibi (ithalatçı). Türk tedarikçi için etki veri ve ticari baskı yoluyla oluşur.",
+    "de_minimis_esigi": {
+      "deger": 50,
+      "birim": "ton/yıl (kümülatif net kütle)",
+      "istisna": "Hidrojen ve elektrik bu muafiyetin dışındadır."
+    },
+    "ceyreklik_sertifika_tutma_orani": 50,
+    "ceyreklik_tutma_metni": "Beyan sahibinin çeyrek sonunda hesabında tutması gereken sertifika oranı, yıl başından itibaren ithal edilen ürünlerdeki gömülü emisyonun %50'sidir.",
+    "varsayilan_deger_artisi": {
+      "2026": 10,
+      "2027": 20,
+      "2028_ve_sonrasi": 30,
+      "birim": "yüzde",
+      "ekran_metni": "Varsayılan değerler kademeli olarak artmaktadır: 2026 için %10, 2027 için %20, 2028 ve sonrası için %30. Gerçek emisyon verisi sağlanamadığında oluşan maliyet farkı her yıl büyümektedir.",
+      "kullanim_notu": "Maliyet simülatörü bulunmadığı sürece bu metin CBAM modülünün giriş notunda veya veri hazırlığı kontrol listesinin başında gösterilir."
+    },
+    "ucretsiz_tahsisat_azaltimi_ab_ets": {
+      "2026": 2.5,
+      "2027": 2.5,
+      "birim": "yüzde/yıl"
+    },
+    "mensede_odenen_karbon_bedeli": "Menşe ülkede ödenmiş karbon fiyatı, uygun ödeme ve kanıt koşulları sağlanırsa teslim edilecek sertifika sayısından düşülebilir. Otomatik mahsup değildir; koşullar ayrıca incelenir."
+  },
+  "asagi_akis_genislemesi": {
+    "durum": "oneri_trilog",
+    "uyari": "YASAMA SÜRECİ DEVAM EDİYOR. Mevcut CBAM ürün kapsamı, değişiklik tüzüğü yürürlüğe girene kadar geçerlidir. Bu kayıt kullanıcıya mevcut yükümlülük olarak gösterilmez; yalnızca izleme listesi olarak sunulur.",
+    "hedef_baslangic": "2028-01-01",
+    "surec": [
+      {
+        "tarih": "2025-12",
+        "asama": "Komisyon önerisi",
+        "urun_sayisi": "yaklaşık 180"
+      },
+      {
+        "tarih": "2026-06-12",
+        "asama": "Konsey genel yaklaşımı",
+        "urun_sayisi": "yaklaşık 200"
+      },
+      {
+        "tarih": "2026-07-09",
+        "asama": "ENVI komitesi raporu",
+        "urun_sayisi": null
+      },
+      {
+        "tarih": "2026-09-15",
+        "asama": "Avrupa Parlamentosu müzakere pozisyonu (464 kabul / 50 ret / 159 çekimser)",
+        "urun_sayisi": "bildirilen 457 ürün satırı"
+      },
+      {
+        "tarih": null,
+        "asama": "Trilog — nihai metin henüz belirlenmedi",
+        "urun_sayisi": null
+      }
+    ],
+    "urun_ornekleri": [
+      "Bağlantı elemanları",
+      "Tel",
+      "Yaylar",
+      "Ev eşyası",
+      "Makine ve ekipman parçaları",
+      "Araç komponentleri",
+      "İnşaat ekipmanı"
+    ],
+    "aluminyum_esik_onerisi": {
+      "mevcut": 50,
+      "onerilen": 5,
+      "birim": "ton/yıl",
+      "kaynak_asama": "Avrupa Parlamentosu pozisyonu",
+      "not": "Yalnızca alüminyum için önerilmiştir ve nihai değildir. Alüminyumun değer/ağırlık oranı yüksek olduğu için ticari olarak önemli sevkiyatlar 50 tonun altında kalabilmektedir."
+    },
+    "dolanim_onleme": "Menşe ülkeye dayalı varsayılan değer kullanımı dahil daha sıkı kurallar önerilmektedir."
+  },
+  "tsrs": {
+    "dayanak": "KGK Kurul Kararı",
+    "durum": "yururlukte",
+    "esik_karari_tarihi": "2026-01-16",
+    "esik_karari_uygulama": "1 Ocak 2025 tarihinde veya sonrasında başlayan hesap dönemleri",
+    "esikler": {
+      "aktif_toplami": "1.000.000.000 TL",
+      "yillik_net_satis_hasilati": "2.000.000.000 TL",
+      "calisan_sayisi": 500
+    },
+    "esik_kurali": "Ekli (II) sayılı listede yer alan kurum ve kuruluşlar için üç ölçütten en az ikisinin art arda iki raporlama döneminde aşılması gerekir.",
+    "esiksiz_kapsam": "Bankacılık Kanunu uyarınca BDDK düzenleme ve denetimine tabi bankalar herhangi bir eşik değere tabi olmaksızın kapsamdadır.",
+    "standart_degisikligi": {
+      "tarih": "2026-07-31",
+      "konu": "TSRS 2'de sera gazı emisyonlarının açıklanmasına ilişkin değişiklikler yayımlandı.",
+      "etki": "Emisyon açıklama gereklilikleri güncellenmiştir; TSRS yolunda kullanılan soru ve kontrol listeleri bu değişikliğe göre gözden geçirilmelidir."
+    },
+    "not": "Sayısal eşikler dönemsel olarak yeniden belirlenebilir. Her yayın öncesinde KGK'nın güncel Kurul kararı kontrol edilir."
+  },
+  "csrd": {
+    "durum": "yururlukte",
+    "dayanak": "Omnibus I — Direktif (AB) 2026/470",
+    "kabul_tarihi": "2026-02-24",
+    "resmi_gazete_tarihi": "2026-02-26",
+    "yururluk_tarihi": "2026-03-18",
+    "uygulama_baslangici": "Mali yıl 2027 (1 Ocak 2027 ve sonrasında başlayan hesap dönemleri)",
+    "uye_devlet_aktarim_son_tarihi": "2027-03-19",
+    "esikler": {
+      "calisan_sayisi": "1.000'den fazla (yıllık ortalama)",
+      "net_ciro": "450 milyon avrodan fazla",
+      "kural": "İki ölçütün de birlikte aşılması gerekir. Önceki çerçevedeki 250 çalışan / 50 milyon avro eşiklerinin yerini almıştır."
+    },
+    "ab_disi_ana_sirket": "AB dışındaki ana şirketler için: AB içinde 450 milyon avrodan fazla net ciro ve AB'de bir bağlı ortaklık ya da 200 milyon avrodan fazla net cirolu bir şube.",
+    "kapsam_daralmasi": "Komisyon tahminine göre kapsamdaki şirket sayısı yaklaşık %80 azalmaktadır. Borsada işlem gören KOBİ'ler zorunlu kapsamdan tamamen çıkarılmıştır.",
+    "diger_degisiklikler": "Sektöre özgü standartlar kaldırıldı, bilgi vermekten kaçınma hakları genişletildi, değer zinciri bilgi talepleri sınırlandırıldı. Dalga (wave) esaslı kademeli uygulama sona erdi.",
+    "revize_esrs_yururluk": "2026-11-10",
+    "ekran_metni": "Omnibus I Direktifi (AB) 2026/470, 18 Mart 2026 tarihinde yürürlüğe girdi ve CSRD kapsamını önemli ölçüde daralttı. Zorunlu raporlama yalnızca 1.000'den fazla çalışanı VE 450 milyon avrodan fazla net cirosu olan şirketleri kapsar; iki ölçütün birlikte aşılması gerekir. Yeni kapsam mali yıl 2027'den itibaren uygulanır. Borsada işlem gören KOBİ'ler zorunlu kapsam dışındadır.",
+    "turkiye_baglantisi_notu": "Türkiye merkezli bir şirket CSRD'ye doğrudan tabi olmasa da, AB'deki ana şirketi veya kurumsal müşterisi üzerinden değer zinciri bilgi talebi alabilir. Omnibus I bu talepleri sınırlamıştır; ancak tamamen ortadan kaldırmamıştır.",
+    "kapsam_disi": "CSDDD (CS3D) ayrı bir direktiftir ve bu araçta ele alınmaz. Omnibus I ile eşikleri 5.000 çalışan ve 1,5 milyar avro net dünya cirosuna yükseltilmiştir."
+  },
+  "takvim": [
+    {
+      "tarih": "2026-10-27",
+      "baslik": "İlk İzleme Metodolojisi Planı teslimi",
+      "kapsam": "TR ETS pilot dönem kapsamındaki işletmeler",
+      "dayanak": "TR ETS Yönetmeliği Geçici Madde 3/1",
+      "durum": "yururlukte",
+      "not": "Yönetmeliğin yürürlüğe girdiği tarihten itibaren 2 ay. Başkanlık gerekli görmesi halinde bu süreyi altı aya kadar uzatabilir."
+    },
+    {
+      "tarih": "2026-11-09",
+      "bitis_tarihi": "2026-11-20",
+      "baslik": "COP31 — Antalya",
+      "kapsam": "Bağlam bilgisi",
+      "durum": "yururlukte",
+      "not": "Tek başına şirket yükümlülüğü doğurmaz."
+    },
+    {
+      "tarih": "2027-01-01",
+      "baslik": "TR ETS 2027 sistem yılı — fiyat mekanizması başlar",
+      "kapsam": "TR ETS pilot kapsamındaki işletmeler",
+      "dayanak": "KPK/2026/1",
+      "durum": "kurul_karari",
+      "not": "Ücretsiz tahsisat oranı pilot dönem boyunca %100'dür. Fiyat mekanizmasının işleyiş detayları yayımlandıkça parametreler güncellenir."
+    },
+    {
+      "tarih": "2027-02-01",
+      "baslik": "CBAM sertifikalarının satışa açılması",
+      "kapsam": "AB'deki yetkili CBAM beyan sahipleri",
+      "durum": "yururlukte",
+      "not": "2026 ithalatına karşılık gelen sertifikalar."
+    },
+    {
+      "tarih": "2027-09-30",
+      "baslik": "İlk yıllık CBAM beyanı ve sertifika teslimi",
+      "kapsam": "2026 yılı ithalatı",
+      "durum": "yururlukte",
+      "not": "Beyan tarihi Omnibus ile 31 Mayıs'tan 30 Eylül'e ertelenmiştir."
+    },
+    {
+      "tarih": "2028-01-01",
+      "baslik": "CBAM aşağı akış genişlemesi (hedeflenen başlangıç)",
+      "kapsam": "Çelik ve alüminyum içeren aşağı akış ürünleri",
+      "durum": "oneri_trilog",
+      "not": "Nihai ürün listesi ve eşikler trilog sonucunda belirlenecektir. İzleme listesi kaydıdır."
+    },
+    {
+      "tarih": "2028-01-01",
+      "baslik": "TR ETS birinci uygulama dönemi başlangıcı",
+      "kapsam": "Yönetmelik EK-1 faaliyetleri",
+      "durum": "yururlukte",
+      "not": "2028-2035; iki alt dönem (2028-2030, 2031-2035)."
+    }
+  ],
+  "kaynaklar": [
+    {
+      "id": 1,
+      "ad": "Türkiye Emisyon Ticaret Sistemi Yönetmeliği",
+      "tarih": "2026-08-27",
+      "not": "Resmî Gazete; EK-1, EK-4, Geçici Madde 3."
+    },
+    {
+      "id": 2,
+      "ad": "İklim Değişikliği Başkanlığı — KPK/2026/1 duyurusu",
+      "tarih": "2026-09-03",
+      "url": "https://iklim.gov.tr/tr-ets-pilot-uygulama-donemine-yonelik-karbon-piyasasi-kurulu-toplanti-kararlarina-kpk-2026-1-iliskin-duyuru-duyuru-45"
+    },
+    {
+      "id": 3,
+      "ad": "Avrupa Komisyonu — CBAM definitive regime / legislation and guidance",
+      "tarih": null
+    },
+    {
+      "id": 4,
+      "ad": "Avrupa Parlamentosu — CBAM aşağı akış genişlemesi müzakere pozisyonu",
+      "tarih": "2026-09-15"
+    },
+    {
+      "id": 5,
+      "ad": "EPRS brifingi — Extension of CBAM scope to downstream goods",
+      "tarih": "2026-09",
+      "url": "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/09/EPRS_ATA(2026)791461.html"
+    },
+    {
+      "id": 6,
+      "ad": "KGK — TSRS uygulama kapsamı eşik değerleri Kurul Kararı",
+      "tarih": "2026-01-16"
+    },
+    {
+      "id": 7,
+      "ad": "KGK — TSRS 2 sera gazı emisyonları açıklama değişiklikleri",
+      "tarih": "2026-07-31",
+      "url": "https://www.kgk.gov.tr/surdurulebilirlik"
+    },
+    {
+      "id": 8,
+      "ad": "Direktif (AB) 2026/470 — Omnibus I; Resmî Gazete 26 Şubat 2026, yürürlük 18 Mart 2026",
+      "tarih": "2026-02-26",
+      "not": "CSRD ve CSDDD değişikliklerinin birincil dayanağı. Nihai metin AB Resmî Gazetesi üzerinden teyit edilmelidir."
+    }
+  ],
+  "gosterim": {
+    "uygulama_surumu": "v0.2.2",
+    "metodoloji": "Metodoloji 2026.10",
+    "durum_etiketleri_en": {
+      "yururlukte": "In force",
+      "kurul_karari": "Determined by board decision",
+      "oneri_trilog": "Proposal — legislative process ongoing"
+    },
+    "ets_sektorleri_en": [
+      "Power generation",
+      "Cement",
+      "Iron and steel",
+      "Aluminium",
+      "Fertiliser"
+    ],
+    "tsrs_application_period_en": "accounting periods beginning on or after 1 January 2025",
+    "takvim_en": [
+      {"baslik":"First Monitoring Methodology Plan submission","kapsam":"Businesses in the TR ETS pilot-period scope","dayanak":"TR ETS Regulation Temporary Article 3/1","not":"Two months from the Regulation's entry into force; the Presidency may extend the period up to six months."},
+      {"baslik":"COP31 — Antalya","kapsam":"Context information","dayanak":"","not":"Does not by itself create a company obligation."},
+      {"baslik":"TR ETS 2027 system year — price mechanism begins","kapsam":"Businesses in the TR ETS pilot-period scope","dayanak":"KPK/2026/1","not":"Free allocation is 100% throughout the pilot period; operating details will be updated as published."},
+      {"baslik":"CBAM certificates go on sale","kapsam":"Authorised CBAM declarants in the EU","dayanak":"","not":"Certificates corresponding to 2026 imports."},
+      {"baslik":"First annual CBAM declaration and certificate surrender","kapsam":"2026 imports","dayanak":"","not":"The declaration date was moved to 30 September by the Omnibus change."},
+      {"baslik":"CBAM downstream expansion (target start)","kapsam":"Downstream products containing steel and aluminium","dayanak":"","not":"Final product list and thresholds will be determined through trilogue negotiations. Watchlist entry."},
+      {"baslik":"TR ETS first application period begins","kapsam":"Regulation Annex-1 activities","dayanak":"","not":"2028–2035, with two sub-periods (2028–2030 and 2031–2035)."}
+    ],
+    "kaynak_adlari_en": {
+      "1": "Turkish Emissions Trading System Regulation",
+      "2": "Presidency of Climate Change — KPK/2026/1 announcement",
+      "3": "European Commission — CBAM definitive regime / legislation and guidance",
+      "4": "European Parliament — CBAM downstream expansion negotiating position",
+      "5": "EPRS briefing — Extension of CBAM scope to downstream goods",
+      "6": "KGK — TSRS scope thresholds Board Decision",
+      "7": "KGK — TSRS 2 greenhouse-gas disclosure amendments",
+      "8": "Directive (EU) 2026/470 — Omnibus I; Official Journal 26 February 2026, in force 18 March 2026"
+    }
+  }
+}
